@@ -1,5 +1,5 @@
-# CSE299-Populace-
-
+# SU19CSE299S16G03NSU
+## CSE299: Junior Design Project
 ## Section: 16
 ## Group: 03
 
