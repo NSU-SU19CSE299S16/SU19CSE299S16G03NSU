@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 
 const app = express();
 app.set("view engine", "ejs");
+app.use("/assets", express.static("assets"));
 
 app.get("/", function(req, res){
   res.render('home');
