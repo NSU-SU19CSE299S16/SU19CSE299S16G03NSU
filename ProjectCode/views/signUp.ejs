@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-4 col-sm-4 col-xs-12"></div>
         <div class="col-md-4 col-sm-4 col-xs-12">
-                
+
             <form id="log">
                 <h3>Sign Up</h3>
                 <center><img class=" img img-responsive" src="assets/pic.jpg"></center>
@@ -25,7 +25,8 @@
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                         placeholder="Enter email">
 
-                    <!--  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
@@ -36,15 +37,22 @@
                     <input type="name" class="form-control" id="universityname"
                         placeholder=" enter school or univesity name">
                 </div>
-                <div class="custom-select" style="width:200px;">
-                    <select>
-                        <option value="0">Male / Female:</option>
-                        <option value="1">Male</option>
-                        <option value="2">Female</option>
-                    </select>
+
+                <!-- Default checked -->
+
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="defaultUnchecked1" checked>
+                    <label class="custom-control-label" for="defaultUnchecked1">Male</label>
                 </div>
 
 
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="defaultChecked2">
+                    <label class="custom-control-label" for="defaultChecked2">Female</label>
+                </div>
+                <!-- Default checked ends -->
+
+                <!-- button -->
                 <button type="button" class="btn btn-info btn-block">Submit</button>
             </form>
         </div>
@@ -93,17 +101,10 @@
         margin: auto;
     }
 
-    .custom-select {
-        position: relative;
-        font-family: Arial;
-        background-color: rgb(39, 144, 170);
-        padding: 2px;
-        border: 1px solid gray;
-    }
 
 
     .form-control {
-        background-color: bisque;
+        background-color: blanchedalmond;
         border: 2px burlywood;
 
     }
