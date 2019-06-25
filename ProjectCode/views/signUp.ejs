@@ -1,85 +1,113 @@
 <%- include("partials/header") -%>
 
-    <div class="container bg ">
-         <div class="row">
-         <div class="col-md-4 col-sm-4 col-xs-12"></div>
-         <div class="col-md-4 col-sm-4 col-xs-12">
-
-            <form id = "log">
-            <h3>Sign Up</h3>
-             <center><img class=" img img-responsive" src="assets/pic.jpg"></center>
-
-                 <div class="form-group">
-                     <label for="Firstname">First Name</label>
-                     <input type="name" class="form-control" id="Firstname" placeholder= "First Name">
-                    </div>
-
-                 <div class="form-group">
-                     <label for="Lastname">Last Name</label>
-                     <input type="name" class="form-control" id="Lastname" placeholder= "Last Name">
-                    </div>
-
-                 <div class="form-group">
-                     <label for="exampleInputEmail1">Email address</label>
-                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                   
-                   <!--  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
-                     </div>
-                <div class="form-group">
-                     <label for="exampleInputPassword1">Password</label>
-                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                     </div>
-
+<div class="container bg ">
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12"></div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
                 
-                     <button type="button" class="btn btn-info btn-block">Submit</button>  
-                    </form>
-                     </div>
-                     <div class="col-md-4 col-sm-4 col-xs-12"></div>
-                      </div>
-                      </div>
+            <form id="log">
+                <h3>Sign Up</h3>
+                <center><img class=" img img-responsive" src="assets/pic.jpg"></center>
+
+                <div class="form-group">
+                    <label for="Firstname">First Name</label>
+                    <input type="name" class="form-control" id="Firstname" placeholder="First Name">
+                </div>
+
+                <div class="form-group">
+                    <label for="Lastname">Last Name</label>
+                    <input type="name" class="form-control" id="Lastname" placeholder="Last Name">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="Enter email">
+
+                    <!--  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">School Or University Name</label>
+                    <input type="name" class="form-control" id="universityname"
+                        placeholder=" enter school or univesity name">
+                </div>
+                <div class="custom-select" style="width:200px;">
+                    <select>
+                        <option value="0">Male / Female:</option>
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                    </select>
+                </div>
+
+
+                <button type="button" class="btn btn-info btn-block">Submit</button>
+            </form>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12"></div>
+
+    </div>
+
+</div>
 
 
 <style type="text/css">
-   
-   #log{
-       
-       padding: auto;
-       margin-top:auto ;
-       border-radius: 7px 0px 21px 12px;
--moz-border-radius: 7px 0px 21px 12px;
--webkit-border-radius: 7px 0px 21px 12px;
-border: 23px solid #4fabe9;      
+    #log {
 
--webkit-box-shadow: -11px 17px 15px 0px rgba(0,0,0,0.75);
--moz-box-shadow: -11px 17px 15px 0px rgba(0,0,0,0.75);
-box-shadow: -11px 17px 15px 0px rgba(0,0,0,0.75);
-}
-   h3{
-       color:steelblue;
-       text-align: center;
-       font-family:cursive;
-       font-weight:bolder;
-       margin-top: -10px;
-    
-   }
-   label{
-       font-size: 15px;
-       color: black;
-       font-family: sans-serif;
-       font-weight: bolder;
-       font-size: 15px;
-       
-   }
-   img{
-       width: 90px;
-       margin: auto;
-     
-   
-       
+        padding: auto;
+        margin-top: auto;
+        border-radius: 35px 9px 9px 9px;
+        -moz-border-radius: 35px 9px 9px 9px;
+        -webkit-border-radius: 35px 9px 9px 9px;
+        border: 10px solid #37d3fa;
 
-       }
-      
- </style>
+        -webkit-box-shadow: -11px 17px 15px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: -11px 17px 15px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: -11px 17px 15px 0px rgba(0, 0, 0, 0.75);
+    }
+
+    h3 {
+        color: steelblue;
+        text-align: center;
+        font-family: cursive;
+        font-weight: bolder;
+        margin-top: -10px;
+
+    }
+
+    label {
+        font-size: 15px;
+        color: black;
+        font-family: sans-serif;
+        font-weight: bolder;
+        font-size: 15px;
+
+    }
+
+    img {
+        width: 90px;
+        margin: auto;
+    }
+
+    .custom-select {
+        position: relative;
+        font-family: Arial;
+        background-color: rgb(39, 144, 170);
+        padding: 2px;
+        border: 1px solid gray;
+    }
+
+
+    .form-control {
+        background-color: bisque;
+        border: 2px burlywood;
+
+    }
+</style>
 
 
 
