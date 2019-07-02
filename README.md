@@ -1,12 +1,28 @@
-# SU19CSE299S16G03NSU
-
-### CSE299: Junior Design Project, Summer 2019, Section: 16, Group: 03
-
-### Name: Sayeed Md. Shaiban
-### ID: 1621193042
-
-### Name: Monisha Saha
-### ID: 1631667042
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+  ## Project Name: Populace
+  ## Course Number: CSE 299
+  ## Section:16
+  ## Semester: Summer 2019
+  ## Faculty Name: Shaikh Shawon Arefin Shimon
+  ## Student Name: Sayeed Md. Shaiban
+  ## Student ID: 1621193042
+  ## Email: sayeed.shaiban@northsouth.edu
+  ## Student Name: Monisha Saha
+  ## Student ID: 1631667042
+  ## Email: monisha.saha@northsouth.edu
+  ## [Git repository link](https://github.com/sayeedk06/CSE299-Populace-)
+  ## Date prepared: 11/06/2019
 
 # Project Name: Populace
 ## Project Idea: 
