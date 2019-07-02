@@ -16,14 +16,25 @@ Primarily, the two platforms that we will include are ‘Google Classroom’ and
 ## Features:
 >The main feature of ‘Populace’ is that users will be able to view different platforms on one window after logging in once. After that uses will be able to- 
 
-         * Post:Users can post their questions, queries, problems which they wanted to post on specific platform from the site.
-                Users will also be able to associate their subject/course to a specific platform.
-         * They will also be able to see posts made on Google Classroom and piazza by others without changing the tab.
+   * Post:Users can post their questions, queries, problems which they wanted to post on specific platform from the site.
+       Users will also be able to associate their subject/course to a specific platform.
+   * They will also be able to see posts made on Google Classroom and piazza by others without changing the tab.
         
  ## Technology:
  >For UI design we decided to use Bootstrap. Bootstrap is a free and open-source CSS framework directed at responsive front-end web development. It contains CSS and JavaScript-based design templates for typography, forms, buttons, navigation and other interface components. Bootstrap will be used over the usual HTML and CSS.  And for the backend we will be using Express.js. It is a web application framework. It is a minimal and flexible Node.js web application framework that provides robust set of features.Finally, for the database requirement we have opted to use a NoSQL database. And so we have decided to use MongoDB for the projects database requirement.  The reason for doing so is because we have only two entities:
         
-         * USER: Will keep info about the users signing in the application
-         * PLATFORM: The platform information for the signed in USER entity.
+   * USER: Will keep info about the users signing in the application
+   * PLATFORM: The platform information for the signed in USER entity.
+         
+>To get the data from the other platforms we will be using the following APIs–
+
+  * [Google Classroom Link](https://developers.google.com/classroom/)
+  * [Piazza Link](https://www.npmjs.com/package/piazza-api) 
+      
+> Hence, our application technology stack stands as such –
+         
+         
+         
+         
         
         
