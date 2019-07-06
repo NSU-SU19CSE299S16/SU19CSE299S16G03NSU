@@ -20,7 +20,10 @@ def profile(request):
             p_email = form.cleaned_data['email']
             p_password = form.cleaned_data['password']
             p.user_login(p_email,p_password)
-            print(p.get_user_profile())
+            # print(p.get_user_profile())
+        
+
+            return render(request,'api/piazza.html',{'class':class_names})
     else:
         # if a GET (or any other method) we'll create a blank form
         form = piazzaLoginForm()
