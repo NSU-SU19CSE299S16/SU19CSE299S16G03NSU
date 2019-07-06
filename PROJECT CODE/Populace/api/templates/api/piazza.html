@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Populace</title>
-  </head>
-  <body>
+{% extends 'base.html' %}
+{% block content %}
     <h1>its working</h1>
-  </body>
-</html>
+    <br>
+    <br>
+    {% for names in class %}
+
+    <h1>{{names}}</h1>
+
+    {% endfor %}
+{% endblock %}
