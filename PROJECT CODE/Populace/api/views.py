@@ -21,7 +21,11 @@ def profile(request):
             p_password = form.cleaned_data['password']
             p.user_login(p_email,p_password)
             # print(p.get_user_profile())
-        
+            dict = p.get_user_profile()
+            class_names = []
+            for i in dict['all_classes']:
+                class_names.append(dict['all_classes'][i]['num'])
+                print(class_names)
 
             return render(request,'api/piazza.html',{'class':class_names})
     else:
