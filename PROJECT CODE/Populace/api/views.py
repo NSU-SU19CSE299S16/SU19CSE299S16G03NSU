@@ -13,5 +13,15 @@ def signup(request):
 
 def profile(request):
     p = Piazza()
-    # p.user_login()
-    return render(request,'api/profile.html')
+    #if this is a POST request we need to process the form data
+    if request.method =='POST':
+        form = piazzaLoginForm(request.POST)
+        if form.is_valid():
+            p_email = form.cleaned_data['email']
+            p_password = form.cleaned_data['password']
+            p.user_login(p_email,p_password)
+            print(p.get_user_profile())
+    else:
+        # if a GET (or any other method) we'll create a blank form
+        form = piazzaLoginForm()
+    return render(request,'api/profile.html',{'piazzaform':form})
