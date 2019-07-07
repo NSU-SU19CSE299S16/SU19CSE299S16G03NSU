@@ -44,10 +44,9 @@ Primarily, the two platforms that we will include are ‘Google Classroom’ and
          
 >To get the data from the other platforms we will be using the following APIs–
 
-  * [Google Classroom Link](https://developers.google.com/classroom/)
-  * [Piazza Link](https://www.npmjs.com/package/piazza-api) 
-      
-> Hence, our application technology stack stands as such –
+  * [Google Classroom Link](https://developers.google.com/classroom/quickstart/python)
+  * [Piazza Link](https://pypi.org/project/piazza-api/) 
+
 
 ## BussinessPlan/Monetization
 >Google AdSense is the easiest way to monetize a website. It is designed for website developers to display photos, videos, texts on their website.  There are different types of ads available in Google AdSense. If our website is Google AdSense approved, Google will post ads on our website. Therefore, we can make money if someone clicks and views it. On the other hand, this can be used by universities, schools and colleges as a means for them to communicate with their students, so we can make these organizations use our website as their own personal site. It will help the students in their studies. Because they will find Google classroom and piazza in one platform. It will saves their time and keeps them organized. So we can also approach these educational institutions to adopt our site to their system.
