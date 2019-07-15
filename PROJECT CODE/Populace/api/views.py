@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from piazza_api import Piazza
 from .forms import piazzaLoginForm
 from django.contrib.auth import authenticate, login
@@ -6,16 +6,15 @@ from django.contrib.auth import authenticate, login
 
 # Create your views here.
 def home(request):
-    if request.method == 'POST':
-
+    if (request.method == 'POST'):
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request,user)
-            render(request,'api/piazza.html')
+            return redirect('profile')
         else:
-            pass
+            return redirect('home')
     return render(request,'api/index.html')
 
 def signup(request):
