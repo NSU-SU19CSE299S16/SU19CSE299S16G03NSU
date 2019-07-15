@@ -1,11 +1,21 @@
 from django.shortcuts import render
 from piazza_api import Piazza
 from .forms import piazzaLoginForm
-
+from django.contrib.auth import authenticate, login
 
 
 # Create your views here.
 def home(request):
+    if request.method == 'POST':
+
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request,user)
+            render(request,'api/piazza.html')
+        else:
+            pass
     return render(request,'api/index.html')
 
 def signup(request):
