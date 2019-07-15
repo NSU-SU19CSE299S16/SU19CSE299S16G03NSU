@@ -36,14 +36,45 @@
     </nav>
 
     <!-- navbar ends here -->
-
+    <div class="row">
+    <div class="col-12" style="padding: 30px;"></div>
+    </div>
+    <!-- login starts here -->
+    <div class="card shadow p-0 mb-7" id="loginForm"
+        style="border: 5px solid #f1f1f1;display: none; position: fixed; right: 15px; padding: 30px; z-index: 10;">
+        <form action="{% url 'home' %}" method="post" class="form-container">
+          {% csrf_token %}
+            <div class="form-group" style="padding:5px;">
+                <label for="exampleInputEmail1">Username</label>
+                <input type="text" class="form-control" placeholder="Example666" name='username'>
+            </div>
+            <div class="form-group" style="padding:5px;">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" placeholder="password here" name='password'>
+            </div>
+            <div style="padding: 5px;">
+                <button type="submit" class="btn btn-info">Login</button>
+                <!-- <button type="button" class="btn cancel btn-danger" onclick="closeForm()">Close</button> -->
+            </div>
+        </form>
+    </div>
+    <!-- login ends here -->
 
 
     {% block content%}
 
     {% endblock %}
 
+    <!-- login popup function starts here -->
+    <script>
+        function openForm() {
+            document.getElementById("loginForm").style.display = "block";
+        }
 
+        function closeForm() {
+            document.getElementById("loginForm").style.display = "none";
+        }
+    </script>
 
   </body>
   <!-- Footer -->
