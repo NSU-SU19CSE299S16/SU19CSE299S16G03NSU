@@ -24,6 +24,14 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
+          {% if user.is_authenticated %}
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  <button class="nav-link btn btn-outline-info" href="{% url 'logout' %}">Logout</button>
+              </li>
+          </ul>
+
+          {% else %}
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <button class="nav-link btn btn-outline-info" href="login" onclick="openForm()">Login</button>
@@ -32,6 +40,7 @@
                     <a class="nav-link btn btn-outline-info" href="{% url 'signup' %}">Sign Up</a>
                 </li>
             </ul>
+            {% endif%}
         </div>
     </nav>
 

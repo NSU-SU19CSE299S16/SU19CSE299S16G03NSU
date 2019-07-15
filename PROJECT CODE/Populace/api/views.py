@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from piazza_api import Piazza
 from .forms import piazzaLoginForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 
 # Create your views here.
@@ -16,6 +16,12 @@ def home(request):
         else:
             return redirect('home')
     return render(request,'api/index.html')
+
+def user_logout(request):
+    logout(request)
+    return redirect('home')
+
+
 
 def signup(request):
     return render(request,'api/signup.html')
