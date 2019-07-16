@@ -23,11 +23,18 @@ def profile(request):
             # print(p.get_user_profile())
             dict = p.get_user_profile()
             class_names = []
+            class_code = []
+            content = []
+            networks = []
             for i in dict['all_classes']:
                 class_names.append(dict['all_classes'][i]['num'])
-                print(class_names)
-
-            return render(request,'api/piazza.html',{'class':class_names})
+                class_code.append(i)
+                print(class_code)
+            for code in class_code:
+                networks = p.network(code)
+                content = networks.iter_all_posts(10)
+            print(content)
+            return render(request,'api/piazza.html',{'class':class_names,'contents':content})
     else:
         # if a GET (or any other method) we'll create a blank form
         form = piazzaLoginForm()

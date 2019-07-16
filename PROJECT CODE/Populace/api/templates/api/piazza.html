@@ -8,4 +8,12 @@
     <h1>{{names}}</h1>
 
     {% endfor %}
+
+    {% for allpost in contents %}
+
+      {{allpost.created}} <br>
+      {% for s in allpost.history %}
+        {{s.content}}<br>
+      {% endfor %}
+    {% endfor %}
 {% endblock %}
