@@ -49,7 +49,11 @@ def profile(request):
                 networks = p.network(code)
                 content = networks.iter_all_posts(10)
             print(content)
-            return render(request,'api/piazza.html',{'class':class_names,'contents':content})
+            for allpost in content:
+                date = allpost['created']
+                for posts in allpost['history']:
+                    p = posts['content']
+            return render(request,'api/piazza.html',{'class':class_names,'contents':p})
     else:
         # if a GET (or any other method) we'll create a blank form
         form = piazzaLoginForm()
