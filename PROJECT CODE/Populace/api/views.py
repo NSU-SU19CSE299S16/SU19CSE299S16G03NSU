@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from piazza_api import Piazza
 from .forms import piazzaLoginForm
 from django.contrib.auth import authenticate, login, logout
+import re
 
 
 # Create your views here.
@@ -39,21 +40,23 @@ def profile(request):
             dict = p.get_user_profile()
             class_names = []
             class_code = []
-            content = []
-            networks = []
+            content_p = []
+            po = []
             for i in dict['all_classes']:
                 class_names.append(dict['all_classes'][i]['num'])
                 class_code.append(i)
                 print(class_code)
             for code in class_code:
                 networks = p.network(code)
-                content = networks.iter_all_posts(10)
-            print(content)
-            for allpost in content:
-                date = allpost['created']
-                for posts in allpost['history']:
-                    p = posts['content']
-            return render(request,'api/piazza.html',{'class':class_names,'contents':p})
+                content_p = networks.iter_all_posts()
+                print(content_p)
+            for posts in content_p:
+                cleanr = re.compile('<.*?>')
+                cleantext = re.sub(cleanr, '', posts['history'][0]['content'])
+                po.append(cleantext)
+
+
+            return render(request,'api/piazza.html',{'class':class_names,'contents':po})
     else:
         # if a GET (or any other method) we'll create a blank form
         form = piazzaLoginForm()

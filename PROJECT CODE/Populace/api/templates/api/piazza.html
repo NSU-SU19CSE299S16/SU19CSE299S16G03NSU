@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>its working</h1>
     <br>
     <br>
     {% for names in class %}
@@ -10,8 +9,10 @@
     {% endfor %}
 
     {% for allpost in contents %}
-      
-        {{contents}}
+
+        {{allpost}}
+        <br>
+        <br>
       <!-- {{allpost.created}} <br>
       {% for s in allpost.history %}
         {{s.content}}<br>
