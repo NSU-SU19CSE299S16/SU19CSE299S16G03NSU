@@ -3,7 +3,7 @@ from piazza_api import Piazza
 from .forms import piazzaLoginForm
 from django.contrib.auth import authenticate, login, logout
 import re
-
+import queue
 
 # Create your views here.
 def home(request):
@@ -38,26 +38,27 @@ def profile(request):
             p.user_login(p_email,p_password)
             # print(p.get_user_profile())
             dict = p.get_user_profile()
-            class_names = []
+            class_names = queue.Queue(maxsize=20)
             class_code = []
             content_p = []
             po = []
             sub = []
             date = []
             for i in dict['all_classes']:
-                class_names.append(dict['all_classes'][i]['num'])
+                class_names.put(dict['all_classes'][i]['num'])
                 class_code.append(i)
                 print(class_code)
             for code in class_code:
                 networks = p.network(code)
                 content_p = networks.iter_all_posts()
                 print(content_p)
-            for posts in content_p:
-                sub.append(posts['history'][0]['subject'])
-                date.append(posts['history'][0]['created'])
-                cleanr = re.compile('<.*?>')
-                cleantext = re.sub(cleanr, '', posts['history'][0]['content'])
-                po.append(cleantext)
+                for posts in content_p:
+                    sub.append(posts['history'][0]['subject'])
+                    date.append(posts['history'][0]['created'])
+                    cleanr = re.compile('<.*?>')
+                    cleantext = re.sub(cleanr, '', posts['history'][0]['content'])
+                    po.append(cleantext)
+
 
             final = zip(sub,date,po)
             return render(request,'api/piazza.html',{'class':class_names,'contents':final})
