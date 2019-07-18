@@ -42,6 +42,8 @@ def profile(request):
             class_code = []
             content_p = []
             po = []
+            sub = []
+            date = []
             for i in dict['all_classes']:
                 class_names.append(dict['all_classes'][i]['num'])
                 class_code.append(i)
@@ -51,12 +53,14 @@ def profile(request):
                 content_p = networks.iter_all_posts()
                 print(content_p)
             for posts in content_p:
+                sub.append(posts['history'][0]['subject'])
+                date.append(posts['history'][0]['created'])
                 cleanr = re.compile('<.*?>')
                 cleantext = re.sub(cleanr, '', posts['history'][0]['content'])
                 po.append(cleantext)
 
-
-            return render(request,'api/piazza.html',{'class':class_names,'contents':po})
+            final = zip(sub,date,po)
+            return render(request,'api/piazza.html',{'class':class_names,'contents':final})
     else:
         # if a GET (or any other method) we'll create a blank form
         form = piazzaLoginForm()

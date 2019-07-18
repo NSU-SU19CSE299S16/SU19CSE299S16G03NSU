@@ -8,11 +8,10 @@
 
     {% endfor %}
 
-    {% for allpost in contents %}
-
-        {{allpost}}
-        <br>
-        <br>
+    {% for sub,date,allpost in contents %}
+        {{sub}}
+        {{date}}<br>
+        {{allpost}}<br><br>
       <!-- {{allpost.created}} <br>
       {% for s in allpost.history %}
         {{s.content}}<br>
