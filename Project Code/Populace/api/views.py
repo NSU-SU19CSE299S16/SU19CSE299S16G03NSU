@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from piazza_api import Piazza
-from .forms import piazzaLoginForm
+from .forms import piazzaLoginForm,googleLoginForm
 from django.contrib.auth import authenticate, login, logout
 import re
 import queue
@@ -31,13 +31,14 @@ def profile(request):
     p = Piazza()
     #if this is a POST request we need to process the form data
     if request.method =='POST':
-        form = piazzaLoginForm(request.POST)
+        form_p = piazzaLoginForm(request.POST)
+        form_g = googleLoginForm(request.POST)
         if 'piazza_p' in request.POST:
 
             print("piazza")
-            if form.is_valid():
-                p_email = form.cleaned_data['email']
-                p_password = form.cleaned_data['password']
+            if form_p.is_valid():
+                p_email = form_p.cleaned_data['email']
+                p_password = form_p.cleaned_data['password']
                 p.user_login(p_email,p_password)
                 # print(p.get_user_profile())
                 dict = p.get_user_profile()
@@ -66,10 +67,15 @@ def profile(request):
                 final = zip(sub,date,po)
                 return render(request,'api/piazza.html',{'class':class_names,'contents':final})
             elif 'google_g' in request.POST:
-                print("goole")
+                if form_g.is_valid():
+                    print("goole")
                 return redirect('home')
 
     else:
         # if a GET (or any other method) we'll create a blank form
-        form = piazzaLoginForm()
-    return render(request,'api/profile.html',{'piazzaform':form})
+        form_p = piazzaLoginForm()
+        form_g = googleLoginForm()
+    return render(request,'api/profile.html',{
+    'piazzaform':form_p,
+    'googleform':form_g
+    })
