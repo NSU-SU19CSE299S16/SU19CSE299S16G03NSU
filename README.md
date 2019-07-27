@@ -1,6 +1,6 @@
-                                             
-   ![NSU Logo](images/nsulogo.png)                                          
-                                             
+<p align="center">
+  <img width="250" height="280" src="images/nsulogo.png">
+</p>                                        
                                              
                                              
                                              
