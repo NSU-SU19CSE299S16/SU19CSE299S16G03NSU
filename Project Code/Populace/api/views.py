@@ -36,7 +36,7 @@ def profile(request):
     #if this is a POST request we need to process the form data
     if request.method =='POST':
         form_p = piazzaLoginForm(request.POST)
-        form_g = googleLoginForm(request.POST)
+        # form_g = googleLoginForm(request.POST)
         if 'piazza_p' in request.POST:
 
             print("piazza")
@@ -71,11 +71,17 @@ def profile(request):
                 final = zip(sub,date,po)
                 return render(request,'api/piazza.html',{'class':class_names,'contents':final})
             elif 'google_g' in request.POST:
-                if form_g.is_valid():
-                    flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(
-                    'client_secret.json',
-                    scope=['https://www.googleapis.com/auth/classroom.courses.readonly'])
-                return redirect('home')
+                # if form_g.is_valid():
+                flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(
+                'client_secret.json',
+                scope=['https://www.googleapis.com/auth/classroom.courses.readonly'])
+
+                flow.redirect_uri = 'http://127.0.0.1:8000/profile/'
+
+                authorization_url, state = flow.authorization_url(
+                access_type='offline',
+                include_granted_scopes='true')
+                return render(request, authorization_url)
 
     else:
         # if a GET (or any other method) we'll create a blank form
