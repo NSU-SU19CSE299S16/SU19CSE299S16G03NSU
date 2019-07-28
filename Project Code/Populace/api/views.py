@@ -4,6 +4,10 @@ from .forms import piazzaLoginForm,googleLoginForm
 from django.contrib.auth import authenticate, login, logout
 import re
 import queue
+#google Classroom
+import google.oauth2.credentials
+import google_auth_oauthlib.flow
+
 
 # Create your views here.
 def home(request):
@@ -68,7 +72,9 @@ def profile(request):
                 return render(request,'api/piazza.html',{'class':class_names,'contents':final})
             elif 'google_g' in request.POST:
                 if form_g.is_valid():
-                    print("goole")
+                    flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(
+                    'client_secret.json',
+                    scope=['https://www.googleapis.com/auth/classroom.courses.readonly'])
                 return redirect('home')
 
     else:
