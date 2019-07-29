@@ -8,7 +8,7 @@ import queue
 import google.oauth2.credentials
 import google_auth_oauthlib.flow
 import googleapiclient.discovery
-
+from django.urls import resolve
 
 # Create your views here.
 def home(request):
@@ -101,7 +101,7 @@ def profile_g(request):
             flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(
             'client_secret.json', scopes=SCOPES)
 
-            flow.redirect_uri = 'http://127.0.0.1:8000/profile/'
+            flow.redirect_uri = 'http://127.0.0.1:8000/google-class/oauth2callback/'
 
             authorization_url, state = flow.authorization_url(
             access_type='offline',
@@ -123,4 +123,23 @@ def profile_g(request):
             request.session['state'] = state
             return render(request,'api/google-class.html', {'authorize':authorization_url})
     else:
-        return render(request,'api/profile.html')        # form_g = googleLoginForm()
+        return render(request,'api/profile.html')
+
+def oauth2callback(request):
+    state = request.session['state']
+    flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(
+    client_secret.json, scopes=SCOPES, state=state)
+
+
+    flow.redirect_uri = 'http://127.0.0.1:8000/google-class/oauth2callback/'
+    authorization_response = resolve(request.path_info).url_name
+
+    flow.fetch_token(authorization_response=authorization_response)
+
+    credentials = flow.credentials
+    request.session['credentials'] = credentials_to_dict(credentials)
+
+    if 'credentials' in request.session:
+        # Load credentials from the session.
+        credentials = google.oauth2.credentials.Credentials(
+        request.session['credentials'])
