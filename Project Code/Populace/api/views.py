@@ -7,6 +7,7 @@ import queue
 #google Classroom
 import google.oauth2.credentials
 import google_auth_oauthlib.flow
+import googleapiclient.discovery
 
 
 # Create your views here.
@@ -91,31 +92,35 @@ def profile_p(request):
 # Function for piazza api functionality and login
 def profile_g(request):
     if request.method =='POST':
-        SCOPES = ['https://www.googleapis.com/auth/classroom.courses.readonly']
-        API_SERVICE_NAME = 'classroom'
-        API_VERSION = 'v1'
+        if 'credentials' not in request.session:
 
-        flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(
-        'client_secret.json',scope=SCOPES)
+            SCOPES = ['https://www.googleapis.com/auth/classroom.courses.readonly']
+            API_SERVICE_NAME = 'classroom'
+            API_VERSION = 'v1'
 
-        flow.redirect_uri = 'http://127.0.0.1:8000/profile/'
+            flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(
+            'client_secret.json', scopes=SCOPES)
 
-        authorization_url, state = flow.authorization_url(
-        access_type='offline',
-        include_granted_scopes='true')
+            flow.redirect_uri = 'http://127.0.0.1:8000/profile/'
 
-        service = build(API_SERVICE_NAME,API_VERSION, credentials=credentials)
+            authorization_url, state = flow.authorization_url(
+            access_type='offline',
+            prompt='consent',
+            include_granted_scopes='true')
 
-                    # Call the Classroom API
-        results = service.courses().list(pageSize=10).execute()
-        courses = results.get('courses', [])
-
-        if not courses:
-            print('No courses found.')
-        else:
-            print('Courses:')
-            for course in courses:
-                print(course['name'])
-            return render(request, authorization_url)
+        # service = build(API_SERVICE_NAME,API_VERSION, credentials=credentials)
+        #
+        #             # Call the Classroom API
+        # results = service.courses().list(pageSize=10).execute()
+        # courses = results.get('courses', [])
+        #
+        # if not courses:
+        #     print('No courses found.')
+        # else:
+        #     print('Courses:')
+        #     for course in courses:
+        #         print(course['name'])
+            request.session['state'] = state
+            return render(request,'api/google-class.html', {'authorize':authorization_url})
     else:
         return render(request,'api/profile.html')        # form_g = googleLoginForm()
