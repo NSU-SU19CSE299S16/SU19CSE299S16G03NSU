@@ -32,6 +32,14 @@ def signup(request):
     return render(request,'api/signup.html')
 
 def profile(request):
+    form_p = piazzaLoginForm()
+    return render(request,'api/profile.html', {
+    'piazzaform':form_p
+    })
+
+
+# Function for piazza api functionality and login
+def profile_p(request):
     p = Piazza()
     #if this is a POST request we need to process the form data
     if request.method =='POST':
@@ -70,24 +78,44 @@ def profile(request):
 
                 final = zip(sub,date,po)
                 return render(request,'api/piazza.html',{'class':class_names,'contents':final})
-            elif 'google_g' in request.POST:
-                # if form_g.is_valid():
-                flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(
-                'client_secret.json',
-                scope=['https://www.googleapis.com/auth/classroom.courses.readonly'])
-
-                flow.redirect_uri = 'http://127.0.0.1:8000/profile/'
-
-                authorization_url, state = flow.authorization_url(
-                access_type='offline',
-                include_granted_scopes='true')
-                return render(request, authorization_url)
 
     else:
         # if a GET (or any other method) we'll create a blank form
         form_p = piazzaLoginForm()
-        form_g = googleLoginForm()
-    return render(request,'api/profile.html',{
-    'piazzaform':form_p,
-    'googleform':form_g
-    })
+        # form_g = googleLoginForm()
+        return render(request,'api/profile.html',{
+        'piazzaform':form_p
+        })
+
+
+# Function for piazza api functionality and login
+def profile_g(request):
+    if request.method =='POST':
+        SCOPES = ['https://www.googleapis.com/auth/classroom.courses.readonly']
+        API_SERVICE_NAME = 'classroom'
+        API_VERSION = 'v1'
+
+        flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(
+        'client_secret.json',scope=SCOPES)
+
+        flow.redirect_uri = 'http://127.0.0.1:8000/profile/'
+
+        authorization_url, state = flow.authorization_url(
+        access_type='offline',
+        include_granted_scopes='true')
+
+        service = build(API_SERVICE_NAME,API_VERSION, credentials=credentials)
+
+                    # Call the Classroom API
+        results = service.courses().list(pageSize=10).execute()
+        courses = results.get('courses', [])
+
+        if not courses:
+            print('No courses found.')
+        else:
+            print('Courses:')
+            for course in courses:
+                print(course['name'])
+            return render(request, authorization_url)
+    else:
+        return render(request,'api/profile.html')        # form_g = googleLoginForm()
