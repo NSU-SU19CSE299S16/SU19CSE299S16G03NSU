@@ -20,7 +20,7 @@
 
 </div>
 <div class="col-4">
-<form action="{% url 'profile' %}" method="post" class="card" style="padding:10px">
+<form action="{% url 'profile_p' %}" method="post" class="card" style="padding:10px">
   {% csrf_token %}
 <div class="card-title">
   Login to Piazza
@@ -35,7 +35,7 @@
 
 
 <div class="col-4">
-  <form action="{% url 'profile' %}" method="post" class="card" style="padding:10px">
+  <form action="{% url 'profile_g' %}" method="post" class="card" style="padding:10px">
     {% csrf_token %}
   <div class="card-title">
     Login to Google-Classroom
