@@ -9,20 +9,20 @@
                                              
                                       
                                         
-<p align="center"><b>                                        
-  Project Name: Populace<br>
-  Course Number: CSE 299<br>
-  Section:16<br>
-  Semester: Summer 2019<br>
-  Faculty Name: Shaikh Shawon Arefin Shimon<br>
-  Student Name: Sayeed Md. Shaiban<br>
+                                       
+  <h1 align="center">Project Name: Populace</h1>
+  <h2 align ="center">Course Number: CSE 299<br>
+  Section:16</br>
+  Semester: Summer 2019</br> 
+  Faculty Name: Shaikh Shawon Arefin Shimon</h2>
+  <h3 align="center">Student Name: Sayeed Md. Shaiban<br>
   Student ID: 1621193042<br>
-  Email: sayeed.shaiban@northsouth.edu<br>
-  Student Name: Monisha Saha<br>
+  Email: sayeed.shaiban@northsouth.edu</h3>
+  <h3 align="center">Student Name: Monisha Saha<br>
   Student ID: 1631667042<br>
   Email: monisha.saha@northsouth.edu<br>
- Date prepared: 11/06/2019<br>
-</b></p>
+  Date prepared: 11/06/2019<br></h3>
+
 
   
 # Project Name: Populace
