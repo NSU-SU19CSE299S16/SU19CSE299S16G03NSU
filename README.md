@@ -17,10 +17,10 @@
   Faculty Name: Shaikh Shawon Arefin Shimon</h2>
   <h3 align="center">Student Name: Sayeed Md. Shaiban<br>
   Student ID: 1621193042<br>
-  Email: sayeed.shaiban@northsouth.edu <br><br>
-  Student Name: Monisha Saha</r>
+  Email: sayeed.shaiban@northsouth.edu <br>
+  Student Name: Monisha Saha<br>
   Student ID: 1631667042<br>
-  Email: monisha.saha@northsouth.edu<br>
+  Email: monisha.saha@northsouth.edu <br><br>
   Date prepared: 11/06/2019</h3><br><br>
 
 
