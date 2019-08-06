@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from piazza_api import Piazza
 from .forms import piazzaLoginForm,googleLoginForm
 from django.contrib.auth import authenticate, login, logout
+from django.urls import reverse
 import re
 import queue
 #google Classroom
@@ -9,7 +10,16 @@ import google.oauth2.credentials
 import google_auth_oauthlib.flow
 import googleapiclient.discovery
 from django.urls import resolve
+import os
 
+os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+
+
+
+SCOPES = ['https://www.googleapis.com/auth/classroom.courses.readonly']
+API_SERVICE_NAME = 'classroom'
+API_VERSION = 'v1'
+some = ''
 # Create your views here.
 def home(request):
     if (request.method == 'POST'):
@@ -90,13 +100,18 @@ def profile_p(request):
 
 
 # Function for piazza api functionality and login
+def credentials_to_dict(credentials):
+  return {'token': credentials.token,
+          'refresh_token': credentials.refresh_token,
+          'token_uri': credentials.token_uri,
+          'client_id': credentials.client_id,
+          'client_secret': credentials.client_secret,
+          'scopes': credentials.scopes}
+
 def profile_g(request):
     if request.method =='POST':
         if 'credentials' not in request.session:
 
-            SCOPES = ['https://www.googleapis.com/auth/classroom.courses.readonly']
-            API_SERVICE_NAME = 'classroom'
-            API_VERSION = 'v1'
 
             flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(
             'client_secret.json', scopes=SCOPES)
@@ -108,32 +123,21 @@ def profile_g(request):
             prompt='consent',
             include_granted_scopes='true')
 
-        # service = build(API_SERVICE_NAME,API_VERSION, credentials=credentials)
-        #
-        #             # Call the Classroom API
-        # results = service.courses().list(pageSize=10).execute()
-        # courses = results.get('courses', [])
-        #
-        # if not courses:
-        #     print('No courses found.')
-        # else:
-        #     print('Courses:')
-        #     for course in courses:
-        #         print(course['name'])
             request.session['state'] = state
-            return render(request,'api/google-class.html', {'authorize':authorization_url})
+            some = state
+            print("/n" + "The state is =" + state + "/n")
+            return redirect(authorization_url)
     else:
         return render(request,'api/profile.html')
 
 def oauth2callback(request):
     state = request.session['state']
     flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(
-    client_secret.json, scopes=SCOPES, state=state)
-
+    'client_secret.json', scopes=SCOPES, state=state)
 
     flow.redirect_uri = 'http://127.0.0.1:8000/google-class/oauth2callback/'
-    authorization_response = resolve(request.path_info).url_name
-
+    authorization_response = request.get_full_path()
+    # print(request.get_full_path())
     flow.fetch_token(authorization_response=authorization_response)
 
     credentials = flow.credentials
@@ -143,3 +147,18 @@ def oauth2callback(request):
         # Load credentials from the session.
         credentials = google.oauth2.credentials.Credentials(
         request.session['credentials'])
+
+        service = build(API_SERVICE_NAME,API_VERSION, credentials=credentials)
+
+        # Call the Classroom API
+        results = service.courses().list(pageSize=10).execute()
+        courses = results.get('courses', [])
+
+        if not courses:
+            print('No courses found.')
+        else:
+            print('Courses:')
+            for course in courses:
+                print(course['name'])
+
+    return render(request,'api/google-class.html')
