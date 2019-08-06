@@ -24,14 +24,14 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
-          {% if user.is_authenticated %}
-          <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                  <a class="nav-link btn btn-outline-info" href="{% url 'logout' %}">Logout</a>
-              </li>
-          </ul>
+            {% if user.is_authenticated %}
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-info" href="{% url 'logout' %}">Logout</a>
+                </li>
+            </ul>
 
-          {% else %}
+            {% else %}
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <button class="nav-link btn btn-outline-info" href="login" onclick="openForm()">Login</button>
@@ -46,13 +46,13 @@
 
     <!-- navbar ends here -->
     <div class="row">
-    <div class="col-12" style="padding: 30px;"></div>
+        <div class="col-12" style="padding: 30px;"></div>
     </div>
     <!-- login starts here -->
     <div class="card shadow p-0 mb-7" id="loginForm"
         style="border: 5px solid #f1f1f1;display: none; position: fixed; right: 15px; padding: 30px; z-index: 10;">
         <form action="{% url 'home' %}" method="post" class="form-container">
-          {% csrf_token %}
+            {% csrf_token %}
             <div class="form-group" style="padding:5px;">
                 <label for="exampleInputEmail1">Username</label>
                 <input type="text" class="form-control" placeholder="Example666" name='username'>
@@ -85,66 +85,112 @@
         }
     </script>
 
-  </body>
-  <!-- Footer -->
-  <footer class="page-footer font-small unique-color-dark">
+</body>
+<!-- Footer -->
+<footer class="page-footer font-small unique-color-dark">
+
+    <!-- Footer -->
+    <footer class="page-footer font-small cyan darken-3">
+
+        <!-- Footer Links -->
+        <div class="container bg-info text-center text-md-left">
+
+            <!-- Grid row -->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-4 mx-auto">
+
+                    <!-- Content -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Populace </h5>
+                    <p class="text-white font-weight ">Populace is a a gathering place especially for students and for
+                        people who wants a one-stop solution
+                        to keep track of all the accounts in different web platform.</p>
+
+                </div>
+
+                <!-- Grid column -->
+                <div class="col-md-2 mx-auto">
+
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4"> Api Links</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!" class="text-white font-weight">Google classroom</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white font-weight">piazza</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none ">
+
+                <!-- Grid column -->
+                <div class="col-md-2 mx-auto">
+
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Address</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!" class="text-white font-weight">Bashundara R/A,Dhaka</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white font-weight">Block D</a>
+                        </li>
+                    </ul>
+
+                </div>
 
 
 
-      <!-- Footer Links -->
-      <div class="container text-center text-md-left mt-5">
+                <hr class="clearfix w-100 d-md-none">
 
-          <!-- Grid row -->
-          <div class="row mt-3">
+                <!-- Grid column -->
+                <div class="col-md-2 mx-auto">
 
-              <!-- Grid column -->
-              <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">About Us</h5>
 
-                  <!-- Content -->
-                  <h6 class="text-uppercase font-weight-bold">Populace</h6>
-                  <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                  <p>Populace is a a gathering place especially for students and for people who wants a one-stop solution
-                      to keep track of all the accounts in different web platform.</p>
-
-              </div>
-              <!-- Grid column -->
-
-              <!-- Grid column -->
-              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-
-                  <!-- Links -->
-                  <h6 class="text-uppercase font-weight-bold">APIs</h6>
-                  <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                  <p>
-                      <a href="#!">Google Classroom</a>
-                  </p>
-                  <p>
-                      <a href="#!">piazza</a>
-                  </p>
+                    <ul class="list-unstyled">
+                        <li> <a href="#" class="text-white font-weight"> Our Website </a> </li>
+                        <li> <a href="#" class="text-white font-weight"> About Us </a> </li>
+                        <li> <a href="#" class="text-white font-weight"> Terms of Services </a> </li>
+                        <li> <a href="#" class="text-white font-weight"> Our Team </a> </li>
+                    </ul>
 
 
-              </div>
-              <!-- Grid column -->
+                </div>
+                <!-- Grid column -->
 
-              <!-- Grid column -->
-              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            </div>
+            <!-- Grid row -->
 
-                  <!-- Links -->
-                  <h6 class="text-uppercase font-weight-bold">Useful links</h6>
-                  <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                  <p>
-                      <a href="#!">Your Account</a>
-                  </p>
-                  <p>
-                      <a href="#!">Sign Up</a>
-                  </p>
-                  <p>
-                      <a href="#!">About</a>
-                  </p>
-                  <p>
-                      <a href="#!">Help</a>
-                  </p>
+        </div>
+        <!-- Call to action -->
+        <ul class="list-unstyled bg-dark list-inline text-center py-2">
+            <li class="list-inline-item">
+                <h5 class="mb-1 text-white">Register for free</h5>
+            </li>
+            <li class="list-inline-item">
+                <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
+            </li>
+            <hr>
+            <div class="footer-copyright bg-light text-right text-dark-bold article__content py-3">© CSE299 Junior Design
+                    Project Copyright:
+                    <a> Populace.com</a>
+                </div>
+        
+        
+            </ul>
 
-              </div>
+    </footer>
 
-  </html>
+
+
+</html>
