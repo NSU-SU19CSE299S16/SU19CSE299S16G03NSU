@@ -20,6 +20,9 @@ SCOPES = ['https://www.googleapis.com/auth/classroom.courses.readonly']
 API_SERVICE_NAME = 'classroom'
 API_VERSION = 'v1'
 some = ''
+def random_string(length=10):
+    password_characters = string.ascii_letters + string.digits + string.punctuation
+    return ''.join(random.choice(password_characters) for i in range(length))
 # Create your views here.
 def home(request):
     if (request.method == 'POST'):
@@ -116,7 +119,7 @@ def profile_g(request):
             flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(
             'client_secret.json', scopes=SCOPES)
 
-            flow.redirect_uri = 'http://127.0.0.1:8000/google-class/oauth2callback/'
+            flow.redirect_uri = 'http://localhost:8000/google-class/oauth2callback/'
 
             authorization_url, state = flow.authorization_url(
             access_type='offline',
@@ -135,13 +138,14 @@ def oauth2callback(request):
     flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(
     'client_secret.json', scopes=SCOPES, state=state)
 
-    flow.redirect_uri = 'http://127.0.0.1:8000/google-class/oauth2callback/'
+    flow.redirect_uri = 'http://localhost:8000/google-class/oauth2callback/'
     authorization_response = request.get_full_path()
     # print(request.get_full_path())
     flow.fetch_token(authorization_response=authorization_response)
 
     credentials = flow.credentials
-    request.session['credentials'] = credentials_to_dict(credentials)
+    request.session['credentials'] = credentials_to_d
+    ict(credentials)
 
     if 'credentials' in request.session:
         # Load credentials from the session.
