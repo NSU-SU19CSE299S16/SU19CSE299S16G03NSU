@@ -5,6 +5,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 import re
 import queue
+import string
+import random
 #google Classroom
 import google.oauth2.credentials
 import google_auth_oauthlib.flow
@@ -23,6 +25,8 @@ some = ''
 def random_string(length=10):
     password_characters = string.ascii_letters + string.digits + string.punctuation
     return ''.join(random.choice(password_characters) for i in range(length))
+
+rs = random_string(40)
 # Create your views here.
 def home(request):
     if (request.method == 'POST'):
@@ -114,24 +118,27 @@ def credentials_to_dict(credentials):
 def profile_g(request):
     if request.method =='POST':
         if 'credentials' not in request.session:
+            return redirect('authorize')
 
 
-            flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(
-            'client_secret.json', scopes=SCOPES)
-
-            flow.redirect_uri = 'http://localhost:8000/google-class/oauth2callback/'
-
-            authorization_url, state = flow.authorization_url(
-            access_type='offline',
-            prompt='consent',
-            include_granted_scopes='true')
-
-            request.session['state'] = state
-            some = state
-            print("/n" + "The state is =" + state + "/n")
-            return redirect(authorization_url)
     else:
         return render(request,'api/profile.html')
+
+def authorized(request):
+    flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(
+    'client_secret.json', scopes=SCOPES)
+
+    flow.redirect_uri = 'http://localhost:8000/google-class/oauth2callback/'
+    flow.code_verifier = rs
+    authorization_url, state = flow.authorization_url(
+    access_type='offline',
+    prompt='consent',
+    include_granted_scopes='true')
+
+    request.session['state'] = state
+    some = state
+    print("/n" + "The state is =" + state + "/n")
+    return redirect(authorization_url)
 
 def oauth2callback(request):
     state = request.session['state']
@@ -139,23 +146,32 @@ def oauth2callback(request):
     'client_secret.json', scopes=SCOPES, state=state)
 
     flow.redirect_uri = 'http://localhost:8000/google-class/oauth2callback/'
+    flow.code_verifier = rs
     authorization_response = request.get_full_path()
     # print(request.get_full_path())
     flow.fetch_token(authorization_response=authorization_response)
 
     credentials = flow.credentials
-    request.session['credentials'] = credentials_to_d
-    ict(credentials)
+
+    # request.session['credentials'] = credentials_to_dict(credentials)
+    cred = credentials_to_dict(credentials)
 
     if 'credentials' in request.session:
         # Load credentials from the session.
         credentials = google.oauth2.credentials.Credentials(
-        request.session['credentials'])
+            cred["token"],
+            refresh_token = cred["refresh_token"],
+            token_uri = cred["token_uri"],
+            client_id = cred["client_id"],
+            client_secret = cred["client_secret"],
+            scopes = cred["scopes"])
 
-        service = build(API_SERVICE_NAME,API_VERSION, credentials=credentials)
+        service = googleapiclient.discovery.build(API_SERVICE_NAME,API_VERSION, credentials=credentials)
 
         # Call the Classroom API
-        results = service.courses().list(pageSize=10).execute()
+        results = service.courses().list(pageSize=1).execute()
+        print('somethign ')
+        print("blaad,lasd," + results)
         courses = results.get('courses', [])
 
         if not courses:

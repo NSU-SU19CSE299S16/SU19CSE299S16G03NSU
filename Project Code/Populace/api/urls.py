@@ -6,6 +6,7 @@ urlpatterns = [
     path('signup/',views.signup, name='signup'),
     path('profile/',views.profile, name='profile'),
     path('google-class/',views.profile_g, name='profile_g'),
+    path('google-class/authorize',views.authorized, name='authorize'),
     path('piazza/',views.profile_p, name='profile_p'),
     path('google-class/oauth2callback/', views.oauth2callback, name='oauth2callback'),
     path('logout/',views.user_logout,name='logout')
