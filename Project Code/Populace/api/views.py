@@ -108,6 +108,7 @@ def piazza_posts(request,pk = None):
                     date.append(posts['history'][0]['created'])
                     cleanr = re.compile('<.*?>')
                     cleantext = re.sub(cleanr, '', posts['history'][0]['content'])
+                    print(cleantext)
                     po.append(cleantext)
     final = zip(sub,date,po)
     return render(request,'api/piazza_post.html',{'allposts':final})
