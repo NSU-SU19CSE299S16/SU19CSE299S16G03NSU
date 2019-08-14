@@ -66,22 +66,8 @@ def profile_p(request):
                     test = dict['all_classes'][i]['num']
                     class_names.append(test)
                     class_code.append(i)
-                    print(class_code)
                     class_dict[test] = i
-                    print(class_dict)
-                    # for code in class_code:
-                    #     networks = p.network(code)
-                    #     content_p = networks.iter_all_posts()
-                    #     print(content_p)
-                #         for posts in content_p:
-                #             sub.append(posts['history'][0]['subject'])
-                #             date.append(posts['history'][0]['created'])
-                #             cleanr = re.compile('<.*?>')
-                #             cleantext = re.sub(cleanr, '', posts['history'][0]['content'])
-                #             po.append(cleantext)
-                #
-                #
-                # final = zip(sub,date,po)
+
                 return render(request,'api/piazza.html',{'class':class_names})
 
     else:
@@ -108,7 +94,6 @@ def piazza_posts(request,pk = None):
                     date.append(posts['history'][0]['created'])
                     cleanr = re.compile('<.*?>')
                     cleantext = re.sub(cleanr, '', posts['history'][0]['content'])
-                    print(cleantext)
                     po.append(cleantext)
     final = zip(sub,date,po)
     return render(request,'api/piazza_post.html',{'allposts':final})

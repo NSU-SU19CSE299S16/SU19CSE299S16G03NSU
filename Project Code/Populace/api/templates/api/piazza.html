@@ -1,50 +1,49 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
     <br>
     <br>
 
+    <div class="row">
+    <div class="col-1">
 
-    <h1 class="text-center font-weight-bold">{{names}}</h1>
+    </div>
+    <div class="col-2">
+      <div class="card" style="width:250px; padding: 10px">
+        <img class="card-img-top" src="{% static "download.png" %}" alt="Card image" style="width:100%">
+        <div class="card-body">
+          <p class="card-title">Name: {{ user.first_name }} {{ user.last_name}}</p>
+          <p class="card-title">Email: {{user.email}}</p>
+          <p class="card-title">Sex: </p>
+          <p class="card-title">Institution: </p>
+        </div>
+        </div>
+    </div>
+    <div class="col-1">
+
+    </div>
+    <div class="col-6">
+
+
+    <h1 class="text-center font-weight-bold">Active Classes in Piazza</h1><br>
 
 
     <div class="container">
       {% for names in class %}
+      <a href="{% url 'piazza_posts' pk=names %}">
       <div class="card" style='padding:5px;box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);'>
       <div class="card-title">
-          <a href="{% url 'piazza_posts' pk=names %}">{{names}}</a>
+          {{names}}
           <br>
 
       </div>
       </div>
+      </a>
       <br>
       <br>
       {% endfor %}
-    <!-- {% for sub,date,allpost in contents reversed %}
-    <div class="card" style='padding:5px;box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);'>
-    <div class="card-title">
-      {% if sub == 'Welcome to Piazza!'%}
-
-          {{names.get}}
-
-      {% endif %}
-      {{sub}}
-      {{date}}<br>
-    </div> -->
-    <div class="card-body">
-      {{allpost}}
-
+      </div>
     </div>
-
-    </div>
-    <br><br>
-
-
-    {% endfor %}
-    </div>
-      <!-- {{allpost.created}} <br>
-      {% for s in allpost.history %}
-        {{s.content}}<br>
-      {% endfor %} -->
-
-
+  </div>
+  <br>
 {% endblock %}
