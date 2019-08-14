@@ -104,8 +104,13 @@ def piazza_posts(request,pk = None):
                 content_p = networks.iter_all_posts()
                 print(value)
                 for posts in content_p:
-
-    return render(request,'api/piazza_post.html')
+                    sub.append(posts['history'][0]['subject'])
+                    date.append(posts['history'][0]['created'])
+                    cleanr = re.compile('<.*?>')
+                    cleantext = re.sub(cleanr, '', posts['history'][0]['content'])
+                    po.append(cleantext)
+    final = zip(sub,date,po)
+    return render(request,'api/piazza_post.html',{'allposts':final})
 
 
 # Function for piazza api functionality and login ends here
