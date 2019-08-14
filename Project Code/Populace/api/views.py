@@ -41,9 +41,9 @@ def profile(request):
 
 # Function for piazza api functionality and login
 class_dict = {}
-
+p = Piazza()
 def profile_p(request):
-    p = Piazza()
+
     #if this is a POST request we need to process the form data
     if request.method =='POST':
         form_p = piazzaLoginForm(request.POST)
@@ -60,10 +60,8 @@ def profile_p(request):
                 # class_names = queue.Queue(maxsize=20)
                 class_names = []
                 class_code = []
-                content_p = []
-                po = []
-                sub = []
-                date = []
+
+
                 for i in dict['all_classes']:
                     test = dict['all_classes'][i]['num']
                     class_names.append(test)
@@ -94,8 +92,21 @@ def profile_p(request):
         'piazzaform':form_p
         })
 
-# def piazza_posts(request):
-#     if request.method == 'POST':
+def piazza_posts(request,pk = None):
+    content_p = []
+    po = []
+    sub = []
+    date = []
+    if pk:
+        for key, value in class_dict.items():
+            if pk == key:
+                networks = p.network(value)
+                content_p = networks.iter_all_posts()
+                print(value)
+                for posts in content_p:
+
+    return render(request,'api/piazza_post.html')
+
 
 # Function for piazza api functionality and login ends here
 def profile_g(request):

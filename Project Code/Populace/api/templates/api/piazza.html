@@ -11,7 +11,7 @@
       {% for names in class %}
       <div class="card" style='padding:5px;box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);'>
       <div class="card-title">
-          {{names}}
+          <a href="{% url 'piazza_posts' pk=names %}">{{names}}</a>
           <br>
 
       </div>
