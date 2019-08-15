@@ -2,16 +2,24 @@
 {% load static %}
 {% block content %}
 
-    <div class="row">
-        <div class="col-12" style="padding: 30px;"></div>
-        <div class="col-1"></div>
-        <div class="col-10">
-           <img src="{% static "background.jpg" %}" class="image-fluid" alt="">
-        </div>
+<div class="row">
+    <div class="col-12" style="padding: 30px;"></div>
+    <div class="col-1"></div>
+    <div class="col-10">
+        <img src="{% static "background.jpg" %}" class="image-fluid" alt="">
+    </div>
+
+    <!-- left side picture-->
+    <section class="learning_part">
+        <div class="container">
+            <div class="row align-items-sm-center align-items-lg-stretch">
+                <div class="col-md-7 col-lg-7">
+                    <div class="learning_img">
+                        <img src="{% static "learning_img.png" %}" class="image-fluid" alt="">
+                    </div>
+                </div>
 
 
 
 
-
-
-    {% endblock %}
+                {% endblock %}
