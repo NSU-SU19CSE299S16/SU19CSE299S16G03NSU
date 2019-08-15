@@ -22,7 +22,8 @@ def home(request):
             return redirect('profile')
         else:
             return redirect('home')
-    return render(request,'api/index.html')
+    form = UserCreationForm()
+    return render(request,'api/index.html',{'form':form})
 
 def user_logout(request):
     logout(request)
@@ -33,6 +34,9 @@ def user_logout(request):
 def signup(request):
     if request.method == 'POST':
         form = UserCreationsForm(request.POST)
+        if form.is_valid():
+            
+            form.save()
     else:
         form = UserCreationForm()
     return render(request,'api/index.html',{'form':form})
