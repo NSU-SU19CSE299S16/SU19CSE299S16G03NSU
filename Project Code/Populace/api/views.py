@@ -3,6 +3,7 @@ from piazza_api import Piazza
 from .forms import piazzaLoginForm,googleLoginForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 import re
 import queue
 #google Classroom
@@ -51,6 +52,7 @@ def signup(request):
         form = RegistrationForm()
     return render(request,'api/index.html',{'form':form})
 
+@login_required
 def profile(request):
     form_p = piazzaLoginForm()
     return render(request,'api/profile.html', {
@@ -61,6 +63,7 @@ def profile(request):
 # Function for piazza api functionality and login
 class_dict = {}
 p = Piazza()
+@login_required
 def profile_p(request):
 
     #if this is a POST request we need to process the form data
@@ -96,7 +99,7 @@ def profile_p(request):
         return render(request,'api/profile.html',{
         'piazzaform':form_p
         })
-
+@login_required
 def piazza_posts(request,pk = None):
     content_p = []
     po = []

@@ -12,10 +12,9 @@
       <div class="card" style="width:250px; padding: 10px">
         <img class="card-img-top" src="{% static "download.png" %}" alt="Card image" style="width:100%">
         <div class="card-body">
-          <p class="card-title">Name: {{ user.first_name }} {{ user.last_name}}</p>
-          <p class="card-title">Email: {{user.email}}</p>
-          <p class="card-title">Sex: </p>
-          <p class="card-title">Institution: </p>
+          <p class="card-title">Username: {{user.username}}</p><br>
+          <p class="card-title">Email: {{user.email}}</p><br><hr>
+          <p class="card-title">Name: {{user.first_name}} {{user.last_name}}</p>
         </div>
         </div>
     </div>
