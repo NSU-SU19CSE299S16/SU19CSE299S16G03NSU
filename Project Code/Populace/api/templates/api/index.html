@@ -69,12 +69,12 @@
 
         <!--  signup starts (Homepage)-->
         <div class="col-md-4 col-sm-4 col-xs-12" style="padding:10px">
-            <ul class="list-unstyled bg-dark list-inline text-center py-2" style="padding:10px;-webkit-border-radius: 10px 10px 10px 10px;box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);" >
+            <ul class="list-unstyled bg-info list-inline text-center py-2" style="padding:10px;-webkit-border-radius: 10px 10px 10px 10px;box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);" >
                 <li class="list-inline-item">
                     <h5 class="mb-1 text-white text-left">Register for free</h5>
                 </li>
                 <hr>
-                <form method="POST" action="{% url 'signup'%}" id="log" style="padding: 8px;" class="card bg-info">
+                <form method="POST" action="{% url 'signup'%}" id="log" style="padding: 8px;" class="card bg-light">
                     {% csrf_token %}
 
                         {{form.as_p}}
@@ -123,7 +123,7 @@
                         </label>
                     </div> <br> -->
                     <!-- button -->
-                    <button type="button" class="btn btn-dark">Submit</button>
+                    <button type="button" class="btn btn-info">Submit</button>
                 </form>
         </div>
     </div>
