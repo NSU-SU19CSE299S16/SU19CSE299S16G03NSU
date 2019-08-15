@@ -9,6 +9,9 @@ import queue
 import google.oauth2.credentials
 import google_auth_oauthlib.flow
 import googleapiclient.discovery
+#Registration
+from .forms import RegistrationForm
+
 
 
 # Create your views here.
@@ -22,7 +25,7 @@ def home(request):
             return redirect('profile')
         else:
             return redirect('home')
-    form = UserCreationForm()
+    form = RegistrationForm()
     return render(request,'api/index.html',{'form':form})
 
 def user_logout(request):
@@ -33,12 +36,12 @@ def user_logout(request):
 
 def signup(request):
     if request.method == 'POST':
-        form = UserCreationsForm(request.POST)
+        form = RegistrationForm(request.POST)
         if form.is_valid():
-            
+
             form.save()
     else:
-        form = UserCreationForm()
+        form = RegistrationForm()
     return render(request,'api/index.html',{'form':form})
 
 def profile(request):
