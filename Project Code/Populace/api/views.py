@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from piazza_api import Piazza
 from .forms import piazzaLoginForm,googleLoginForm
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm
 import re
 import queue
 #google Classroom
@@ -30,7 +31,11 @@ def user_logout(request):
 
 
 def signup(request):
-    return render(request,'api/signup.html')
+    if request.method == 'POST':
+        form = UserCreationsForm(request.POST)
+    else:
+        form = UserCreationForm()
+    return render(request,'api/index.html',{'form':form})
 
 def profile(request):
     form_p = piazzaLoginForm()
