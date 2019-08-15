@@ -2,50 +2,51 @@
 {% load static %}
 {% block content %}
 
+
 <div class="row">
     <div class="col-12" style="padding: 30px;"></div>
     <div class="col-1"></div>
     <div class="col-10">
         <img src="{% static "background.jpg" %}" class="image-fluid" alt="">
     </div>
-    <br>
-    <br>
-    <br>
+</div>
 
-    <!-- left side picture-->
-    <section class="learning_part">
-        <div class="container">
-            <div class="row align-items-sm-center align-items-lg-stretch">
-                <div class="col-md-7 col-lg-7">
-                    <div class="learning_img">
-                        <img src="{% static "learning_img.png" %}" class="image-fluid" alt="">
-                    </div>
+<br>
+<br>
+<br>
+<!-- left side picture-->
+<section class="learning_part">
+    <div class="container">
+        <div class="row align-items-sm-center align-items-lg-stretch">
+            <div class="col-md-7 col-lg-7">
+                <div class="learning_img">
+                    <img src="{% static "learning_img.png" %}" class="image-fluid" alt="">
                 </div>
-                <div class="col-md-5 col-lg-5">
-                    <div class="learning_member_text">
-                    </div>
-                    <!-- content of populace starts-->
-
-                    <h3 style="font-family: 'Fredoka One', cursive; color: royalblue">Populace</h3>
-                    <h2>one-stop solution</h2>
-                    <ul style="font-family: 'Roboto', sans-serif;">
-                        <li><span class="ti-pencil-alt"></span>Populace is a a gathering place especially for students
-                            and
-                            for
-                            people who wants a one-stop solution
-                            to keep track of all the accounts in different web platform.r</li>
-                        <li><span class="ti-ruler-pencil" style="font-family: 'Roboto', sans-serif;"></span>Users can
-                            post
-                            their questions, queries, problems which
-                            they wanted to post on specific platform from the site.</li>
-
-                    </ul>
-                </div>
-
             </div>
+            <div class="col-md-5 col-lg-5">
+                <div class="learning_member_text">
+                </div>
+                <!-- content of populace starts-->
+
+                <h3 style="font-family: 'Fredoka One', cursive; color: royalblue">Populace</h3>
+                <h2>one-stop solution</h2>
+
+                <ul style="font-family: 'Roboto', sans-serif;">
+                    <li><span class="ti-pencil-alt"></span>Populace is a a gathering place especially for students and
+                        for
+                        people who wants a one-stop solution
+                        to keep track of all the accounts in different web platform.r</li>
+                    <li><span class="ti-ruler-pencil" style="font-family: 'Roboto', sans-serif;"></span>Users can post
+                        their questions, queries, problems which
+                        they wanted to post on specific platform from the site.</li>
+                    <li><span class="ti-ruler-pencil"></span> Users will also be able to associate their subject/course
+                        to a specific platform.</li>
+                </ul>
+            </div>
+
         </div>
-    </section>
-    <!-- content of populace ends-->
+    </div>
+</section>
+<!-- content of populace ends-->
 
-
-    {% endblock %}
+{% endblock %}
