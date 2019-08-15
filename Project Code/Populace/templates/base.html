@@ -14,7 +14,7 @@
     <!-- link for google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
-
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </head>
 
@@ -70,6 +70,15 @@
             </div>
         </form>
     </div>
+    
+    {% block content%}
+
+
+    {% endblock %}
+    <br>
+    <br>
+    <br>
+    <br>
     <!-- login ends here -->
     <!-- left side of signup starts -->
 
@@ -146,10 +155,7 @@
         </div>
     </div>
 
-    <!-- signup ends -->
-    {% block content%}
 
-    {% endblock %}
 
     <!-- login popup function starts here -->
     <script>
@@ -162,7 +168,11 @@
         }
     </script>
 
-    <div class="container " style="background-color: cadetblue">
+<section class="advance_feature learning_part">
+
+
+
+    <div class="container " style="background-color: cadetblue;font-family: 'Roboto', sans-serif;">
 
         <!-- Section heading -->
         <h2 class="h1-responsive font-weight-bold text-center mb-5">Contact us</h2>
@@ -188,6 +198,7 @@
                             </div>
                         </div>
                         <!-- Grid column -->
+
                         <!-- Grid column -->
                         <div class="col-md-6">
                             <div class="md-form mb-0">
@@ -199,6 +210,7 @@
 
                     </div>
                     <!-- Grid row -->
+
                     <!-- Grid row -->
                     <div class="row">
 
@@ -227,7 +239,7 @@
 
             <!-- Grid column -->
             <div class="col-md-3 text-center">
-                <ul class="list-unstyled mb-0">
+                <ul class="list-unstyled mb-0" style="font-family: 'Roboto', sans-serif;">
                     <li>
                         <i class="fa fa-map-marker fa-2x purple-text"></i>
                         <p>Bashundhara R/A,Dhaka</p>
@@ -246,8 +258,8 @@
 
     </div>
 
-    </section>
-    <!--Section: contact-->
+</section>
+<!--Section: contact us ends-->
 
 
 
@@ -336,11 +348,11 @@
         </div>
         <!-- Grid row -->
 
-    </div>
+
     <!-- Footer Links -->
 
-    <!-- Call to action -->
-    <ul class="list-unstyled bg-dark list-inline text-center py-2">
+     <!-- Call to action -->
+     <ul class="list-unstyled bg-dark list-inline text-center py-2">
         <li class="list-inline-item">
             <h5 class="mb-1 text-white">Register for free</h5>
         </li>
@@ -348,24 +360,16 @@
             <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
         </li>
         <hr>
-
-
-
-
-        <div class="footer-copyright bg-light text-right text-dark-bold article__content py-3">© CSE299 Junior Design
+        <div class="footer-copyright bg-light text-right text-dark-bold article__content py-3">© CSE299 Junior
+            Design
             Project Copyright:
             <a> Populace.com</a>
         </div>
 
 
     </ul>
-    <!-- Call to action -->
 
-    <!-- Social buttons -->
-
-
-
-
+</div>
 
 </footer>
 <!-- Footer -->
