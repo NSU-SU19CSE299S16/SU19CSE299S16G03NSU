@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
 <br>
 <div class="container">
-
 
 {% for sub,date,content in allposts %}
 
@@ -19,8 +19,7 @@
 </div>
 
 </div>
-<br><br>
-
+<br>
 
 {% endfor %}
 
