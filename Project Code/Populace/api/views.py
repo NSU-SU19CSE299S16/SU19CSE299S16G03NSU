@@ -11,6 +11,7 @@ import google_auth_oauthlib.flow
 import googleapiclient.discovery
 #Registration
 from .forms import RegistrationForm
+from django.contrib import messages
 
 
 
@@ -22,6 +23,7 @@ def home(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request,user)
+            messages.success(request,('You have successfully logged in...'))
             return redirect('profile')
         else:
             return redirect('home')
@@ -38,8 +40,13 @@ def signup(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
-
             form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(request, username=username, password=password)
+            login(request,user)
+            messages.success(request,('You have registered successfully...'))
+            return redirect('profile')
     else:
         form = RegistrationForm()
     return render(request,'api/index.html',{'form':form})
