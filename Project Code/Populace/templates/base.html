@@ -40,7 +40,7 @@
                     <button class="nav-link btn btn-outline-info" href="login" onclick="openForm()">Login</button>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-outline-info" href="{% url 'signup' %}">Sign Up</a>
+                    <a class="nav-link btn btn-outline-info" href="#register">Register</a>
                 </li>
             </ul>
             {% endif%}
@@ -66,11 +66,11 @@
             </div>
             <div style="padding: 5px;">
                 <button type="submit" class="btn btn-info">Login</button>
-                <!-- <button type="button" class="btn cancel btn-danger" onclick="closeForm()">Close</button> -->
+                <button type="button" class="btn cancel btn-danger" onclick="closeForm()">Close</button>
             </div>
         </form>
     </div>
-    
+
     {% block content%}
 
 
@@ -81,80 +81,7 @@
     <br>
     <br>
 
-    <!-- left side of signup starts -->
 
-    <div class="container bg" style="padding: 10px;font-family: 'Roboto', sans-serif;">
-
-        <div class="row">
-            <div class="col-md-4 col-sm-4 col-xs-12">
-                {% load static %}
-                <div class="learning_img">
-                    <img src="{% static "advance_feature_img.png" %}" class="image-fluid" alt="">
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-12"> </div>
-
-            <!--  signup starts (Homepage)-->
-            <div class="col-md-4 col-sm-4 col-xs-12">
-                <ul class="list-unstyled bg-dark list-inline text-center py-2">
-                    <li class="list-inline-item">
-                        <h5 class="mb-1 text-white text-left">Register for free</h5>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
-                    </li>
-                    <hr>
-                    <form id="log" style="padding: 8px;" class="card bg-info">
-
-                        <!-- <center><img class=" img img-responsive" src="assets/pic.jpg"></center> -->
-
-                        <div class="form-group">
-                            <label for="Firstname">First Name</label>
-                            <input type="name" class="form-control" id="Firstname" placeholder="First Name">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="Lastname">Last Name</label>
-                            <input type="name" class="form-control" id="Lastname" placeholder="Last Name">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="Enter email">
-
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                                else.</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1"
-                                placeholder="Password">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Institution Name</label>
-                            <input type="name" class="form-control" id="universityname"
-                                placeholder=" enter school or univesity name">
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                                value="option1" checked>
-                            <label class="form-check-label" for="exampleRadios1">
-                                Male
-                            </label> </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                                value="option2">
-                            <label class="form-check-label" for="exampleRadios2">
-                                Female
-                            </label>
-                        </div> <br>
-                        <!-- button -->
-                        <button type="button" class="btn btn-dark">Submit</button>
-                    </form>
-            </div>
-        </div>
-    </div>
 
 
 
@@ -173,59 +100,57 @@
 
 
 
-    <div class="container " style="background-color: cadetblue;font-family: 'Roboto', sans-serif;">
+    <!-- <div class="container " style="background-color: cadetblue;font-family: 'Roboto', sans-serif; padding:20px"> -->
 
         <!-- Section heading -->
-        <h2 class="h1-responsive font-weight-bold text-center mb-5">Contact us</h2>
+        <!-- <h2 class="h1-responsive font-weight-bold text-center mb-5">Contact us</h2> -->
         <!-- Section description -->
 
 
-        <!-- Grid row -->
+
         <div class="row">
 
-            <!-- Grid column -->
-            <div class="col-md-9 mb-md-0 mb-5">
+
+            <!-- <div class="col-md-9 mb-md-0 mb-5">
 
                 <form>
 
-                    <!-- Grid row -->
+
                     <div class="row">
 
-                        <!-- Grid column -->
+
                         <div class="col-md-6">
                             <div class="md-form mb-0">
                                 <input type="text" id="contact-name" class="form-control">
                                 <label for="contact-name" class="">Your name</label>
                             </div>
                         </div>
-                        <!-- Grid column -->
 
-                        <!-- Grid column -->
                         <div class="col-md-6">
                             <div class="md-form mb-0">
                                 <input type="text" id="contact-email" class="form-control">
                                 <label for="contact-email" class="">Your email</label>
                             </div>
                         </div>
-                        <!-- Grid column -->
 
-                    </div>
-                    <!-- Grid row -->
 
-                    <!-- Grid row -->
+                    </div> -->
+
+
+                  <!--
                     <div class="row">
 
-                        <!-- Grid column -->
+
                         <div class="col-md-12">
                             <div class="md-form mb-0">
                                 <input type="text" id="contact-Subject" class="form-control">
                                 <label for="contact-Subject" class="">message</label>
                             </div>
                         </div>
-                        <!-- Grid column -->
+
 
                     </div>
-                    <!-- Grid row -->
+
 
 
 
@@ -235,11 +160,11 @@
                     <a class="btn btn-dark btn-md">Send</a>
                 </div>
 
-            </div>
-            <!-- Grid column -->
+            </div> -->
+
 
             <!-- Grid column -->
-            <div class="col-md-3 text-center">
+            <!-- <div class="col-md-3 text-center">
                 <ul class="list-unstyled mb-0" style="font-family: 'Roboto', sans-serif;">
                     <li>
                         <i class="fa fa-map-marker fa-2x purple-text"></i>
@@ -251,7 +176,7 @@
                     </li>
 
                 </ul>
-            </div>
+            </div> -->
             <!-- Grid column -->
 
         </div>
@@ -266,10 +191,10 @@
 
 </body>
 <!-- Footer -->
-<footer class="page-footer font-small cyan darken-3">
+<footer class="page-footer container font-small bg-dark" style="padding: 9px;-webkit-border-radius: 10px 10px 10px 10px;box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);">
 
     <!-- Footer Links -->
-    <div class="container bg-info text-center text-md-left">
+    <div class="container bg-info text-center text-md-left" style="opacity:0.8;" >
 
         <!-- Grid row -->
         <div class="row">
@@ -292,7 +217,7 @@
             <div class="col-md-2 mx-auto">
 
                 <!-- Links -->
-                <h5 class="font-weight-bold text-uppercase mt-3 mb-4"> Links</h5>
+                <p class="font-weight-bold text-uppercase mt-3 mb-4"> Links</p>
 
                 <ul class="list-unstyled">
                     <li>
@@ -313,7 +238,7 @@
             <div class="col-md-2 mx-auto">
 
                 <!-- Links -->
-                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Address</h5>
+                <p class="font-weight-bold text-uppercase mt-3 mb-4">Address</p>
 
                 <ul class="list-unstyled">
                     <li>
@@ -333,10 +258,9 @@
             <div class="col-md-2 mx-auto">
 
                 <!-- Links -->
-                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">About Us</h5>
+                <p class="font-weight-bold text-uppercase mt-3 mb-4">About Us</p>
 
                 <ul class="list-unstyled">
-                    <li> <a href="#" class="text-white font-weight"> Our Website </a> </li>
                     <li> <a href="#" class="text-white font-weight"> About Us </a> </li>
                     <li> <a href="#" class="text-white font-weight"> Terms of Services </a> </li>
                     <li> <a href="#" class="text-white font-weight"> Our Team </a> </li>
@@ -352,23 +276,13 @@
 
     <!-- Footer Links -->
 
-     <!-- Call to action -->
-     <ul class="list-unstyled bg-dark list-inline text-center py-2">
-        <li class="list-inline-item">
-            <h5 class="mb-1 text-white">Register for free</h5>
-        </li>
-        <li class="list-inline-item">
-            <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
-        </li>
         <hr>
-        <div class="footer-copyright bg-light text-right text-dark-bold article__content py-3">© CSE299 Junior
-            Design
-            Project Copyright:
-            <a> Populace.com</a>
+        <div class="footer-copyright text-right text-dark-bold article__content py-3" style="padding:10px">
+         Copyright © 2019 CSE299 Junior Design. All rights reserved.
         </div>
 
 
-    </ul>
+    <!-- </ul> -->
 
 </div>
 
