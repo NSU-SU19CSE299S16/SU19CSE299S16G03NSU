@@ -2,12 +2,18 @@ from django.shortcuts import render,redirect
 from piazza_api import Piazza
 from .forms import piazzaLoginForm,googleLoginForm
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 import re
 import queue
 #google Classroom
 import google.oauth2.credentials
 import google_auth_oauthlib.flow
 import googleapiclient.discovery
+#Registration
+from .forms import RegistrationForm
+from django.contrib import messages
+
 
 
 # Create your views here.
@@ -18,10 +24,12 @@ def home(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request,user)
+            messages.success(request,('You have successfully logged in...'))
             return redirect('profile')
         else:
             return redirect('home')
-    return render(request,'api/index.html')
+    form = RegistrationForm()
+    return render(request,'api/index.html',{'form':form})
 
 def user_logout(request):
     logout(request)
@@ -30,8 +38,21 @@ def user_logout(request):
 
 
 def signup(request):
-    return render(request,'api/signup.html')
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(request, username=username, password=password)
+            login(request,user)
+            messages.success(request,('You have registered successfully...'))
+            return redirect('profile')
+    else:
+        form = RegistrationForm()
+    return render(request,'api/index.html',{'form':form})
 
+@login_required
 def profile(request):
     form_p = piazzaLoginForm()
     return render(request,'api/profile.html', {
@@ -42,6 +63,7 @@ def profile(request):
 # Function for piazza api functionality and login
 class_dict = {}
 p = Piazza()
+@login_required
 def profile_p(request):
 
     #if this is a POST request we need to process the form data
@@ -77,7 +99,7 @@ def profile_p(request):
         return render(request,'api/profile.html',{
         'piazzaform':form_p
         })
-
+@login_required
 def piazza_posts(request,pk = None):
     content_p = []
     po = []
