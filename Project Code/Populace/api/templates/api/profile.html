@@ -4,51 +4,66 @@
 <div class="container-fluid">
   <br>
   <br>
+
 <div class="row">
+  <div class="col-1">
+
+  </div>
 <div class="col-2">
-  <div class="card" style="width:250px; padding: 10px">
+  <div class="card" style="width:250px; padding: 10px; box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);-webkit-border-radius: 10px 10px 10px 10px;">
     <img class="card-img-top" src="{% static "download.png" %}" alt="Card image" style="width:100%">
     <div class="card-body">
-      <p class="card-title">Name: John Doe</p>
-      <p class="card-title">Email: </p>
+      <p class="card-title">Name: {{user.username}}</p>
+      <p class="card-title">Email: {{user.email}}</p>
       <p class="card-title">Sex: </p>
       <p class="card-title">Institution: </p>
     </div>
   </div>
 </div>
+
 <div class="col-1">
 
 </div>
-<div class="col-4">
-<form action="{% url 'profile_p' %}" method="post" class="card" style="padding:10px">
+<div class="col-6">
+<form action="{% url 'profile_p' %}" method="post" class="card" style="padding:10px;-webkit-border-radius: 10px 10px 10px 10px; box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);">
   {% csrf_token %}
-<div class="card-title">
-  Login to Piazza
+<div class="card-header">
+  <img class="card-img-top" src="{% static "piazza.png" %}" alt="Card image" style="width:8%"> Login to Piazza
 </div>
 
   {{piazzaform}}
   <br>
-  <button type="submit" value = 'google_g' name="piazza_p" class="btn btn-primary">Login</button>
+  <button type="submit" value = 'piazza_p' name="piazza_p" class="btn btn-primary" style="-webkit-border-radius: 10px 10px 10px 10px;box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);">Login</button>
 </form>
 </div>
+<div class="col-2">
 
-
+</div>
+</div>
+<div class="row">
 
 <div class="col-4">
-  <form action="{% url 'profile_g' %}" method="post" class="card" style="padding:10px">
+
+</div>
+<div class="col-6">
+  <form action="{% url 'profile_g' %}" method="post" class="card" style="padding:10px; -webkit-border-radius: 10px 10px 10px 10px;box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);">
     {% csrf_token %}
-  <div class="card-title">
-    Login to Google-Classroom
+  <div class="card-header">
+  <img class="card-img-top" src="{% static "Classroom.png" %}" alt="Classroom image" style="width:8%">  Login to Google-Classroom
   </div>
 
     <br>
-    <button type="submit" value = 'google_g' name="google_g" class="btn btn-primary">Login</button>
+    <button type="submit" value = 'google_g' name="google_g" class="btn btn-primary" style="-webkit-border-radius: 10px 10px 10px 10px;box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);">Login</button>
   </form>
 
 </div>
-<div class="col-1">
+
+</div>
+<div class="col-2">
 
 </div>
 </div>
-</div>
+<br>
+<br>
+<br>
 {% endblock %}
