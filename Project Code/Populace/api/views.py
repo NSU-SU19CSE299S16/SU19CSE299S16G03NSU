@@ -51,17 +51,20 @@ def signup(request):
     else:
         form = RegistrationForm()
     return render(request,'api/index.html',{'form':form})
-
+    
+ass_class = []
 @login_required
 def profile(request):
     form_p = piazzaLoginForm()
     return render(request,'api/profile.html', {
-    'piazzaform':form_p
+    'piazzaform':form_p,
+    'class_name':ass_class
     })
 
 
 # Function for piazza api functionality and login
 class_dict = {}
+
 p = Piazza()
 @login_required
 def profile_p(request):
