@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from .models import Associated_course
 
 class piazzaLoginForm(forms.Form):
     email = forms.EmailField()
@@ -33,3 +34,9 @@ class RegistrationForm(UserCreationForm):
         self.fields['password2'].widget.attrs.update({'class': 'form-control','placeholder':'Confirm password'})
         self.fields['password2'].label = ""
         self.fields['password2'].help_text = "<small class='form-text text-muted'>Enter same password as before</small>"
+
+class Associated_courseForm(forms.ModelForm):
+    course_name = forms.CharField(max_length=100)
+    class Meta:
+        model = Associated_course
+        fields = ('course_name',)
