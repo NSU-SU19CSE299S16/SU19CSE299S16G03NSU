@@ -11,7 +11,7 @@ import google.oauth2.credentials
 import google_auth_oauthlib.flow
 import googleapiclient.discovery
 #Registration
-from .forms import RegistrationForm
+from .forms import RegistrationForm,Associated_courseForm
 from django.contrib import messages
 
 
@@ -51,14 +51,15 @@ def signup(request):
     else:
         form = RegistrationForm()
     return render(request,'api/index.html',{'form':form})
-    
+
 ass_class = []
 @login_required
 def profile(request):
     form_p = piazzaLoginForm()
+    form_c = Associated_courseForm()
     return render(request,'api/profile.html', {
     'piazzaform':form_p,
-    'class_name':ass_class
+    'class_name':form_c
     })
 
 
