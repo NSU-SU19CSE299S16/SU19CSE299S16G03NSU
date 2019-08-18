@@ -49,9 +49,10 @@
 </div>
 <div class="col-6">
   <small>Add the courses associated with piazza here</small>
-  <form class="#" action="index.html" method="post">
+  <form class="form" action="{% url 'ass_class' %}" method="post">
+    {% csrf_token %}
     {{class_name}}
-    <button class="btn btn-danger" type="submit" name="add" style="-webkit-border-radius: 10px 10px 10px 10px;"> + </button>
+    <button class="btn btn-danger" type="submit" name="add" style="-webkit-border-radius: 10px 10px 10px 10px;""> + </button>
   </form>
 </div>
 </div>

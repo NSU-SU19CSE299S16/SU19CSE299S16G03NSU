@@ -53,6 +53,18 @@ def signup(request):
     return render(request,'api/index.html',{'form':form})
 
 ass_class = []
+def ass_class(request):
+    if request.method == 'POST':
+        form_c = Associated_courseForm(request.POST)
+        if form_c.is_valid():
+            temp = form_c.save(commit=False)
+            temp.platform = 'Piazza'
+            temp.populace_user = request.user
+            temp.save()
+            messages.success(request,('Course successfully added!'))
+    else:
+        messages.success(request,('Invalid Field....'))
+    return redirect('profile')
 @login_required
 def profile(request):
     form_p = piazzaLoginForm()
