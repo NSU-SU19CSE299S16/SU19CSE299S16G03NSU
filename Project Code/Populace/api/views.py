@@ -13,7 +13,7 @@ import googleapiclient.discovery
 #Registration
 from .forms import RegistrationForm,Associated_courseForm
 from django.contrib import messages
-
+from .models import Associated_course
 
 
 # Create your views here.
@@ -69,9 +69,11 @@ def ass_class(request):
 def profile(request):
     form_p = piazzaLoginForm()
     form_c = Associated_courseForm()
+    course_p = Associated_course.objects.filter(populace_user=request.user)
     return render(request,'api/profile.html', {
     'piazzaform':form_p,
-    'class_name':form_c
+    'class_name':form_c,
+    'course_p':course_p
     })
 
 

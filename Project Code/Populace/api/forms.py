@@ -36,7 +36,7 @@ class RegistrationForm(UserCreationForm):
         self.fields['password2'].help_text = "<small class='form-text text-muted'>Enter same password as before</small>"
 
 class Associated_courseForm(forms.ModelForm):
-    course_name = forms.CharField(max_length=100)
+    course_name = forms.CharField(label = "",max_length=100,widget=forms.TextInput(attrs={'placeholder':'Course Name'}))
     class Meta:
         model = Associated_course
         fields = ('course_name',)
