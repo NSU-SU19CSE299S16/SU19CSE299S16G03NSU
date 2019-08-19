@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
 
+
+<div class="row"style="background-image: url({% static "education.png" %});">
+  <div class="col-1">
+
+  </div>
+  <div class="col-2">
+    <div class="card" style="width:250px; padding: 10px">
+      <img class="card-img-top" src="{% static "download.png" %}" alt="Card image" style="width:100%">
+      <div class="card-body">
+        <p class="card-title">Username: {{user.username}}</p><br>
+        <p class="card-title">Email: {{user.email}}</p><br><hr>
+        <p class="card-title">Name: {{user.first_name}} {{user.last_name}}</p>
+      </div>
+      </div>
+
+</div>
 {% for course in courses %}
   <h1>{{course}}</h1>
 {% endfor %}
