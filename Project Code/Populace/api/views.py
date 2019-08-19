@@ -16,7 +16,7 @@ from django.contrib import messages
 from .models import Associated_course
 
 
-# Create your views here.
+# home page and login
 def home(request):
     if (request.method == 'POST'):
         username = request.POST['username']
@@ -31,12 +31,13 @@ def home(request):
     form = RegistrationForm()
     return render(request,'api/index.html',{'form':form})
 
+# user logout
 def user_logout(request):
     logout(request)
     return redirect('home')
 
 
-
+# user signup
 def signup(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
@@ -52,7 +53,7 @@ def signup(request):
         form = RegistrationForm()
     return render(request,'api/index.html',{'form':form})
 
-ass_class = []
+# class association starts here
 def ass_class(request):
     if request.method == 'POST':
         form_c = Associated_courseForm(request.POST)
@@ -65,6 +66,8 @@ def ass_class(request):
     else:
         messages.success(request,('Invalid Field....'))
     return redirect('profile')
+
+# profile page
 @login_required
 def profile(request):
     form_p = piazzaLoginForm()
@@ -79,7 +82,6 @@ def profile(request):
 
 # Function for piazza api functionality and login
 class_dict = {}
-
 p = Piazza()
 @login_required
 def profile_p(request):
@@ -117,6 +119,7 @@ def profile_p(request):
         return render(request,'api/profile.html',{
         'piazzaform':form_p
         })
+# function for getting piazza posts according to class
 @login_required
 def piazza_posts(request,pk = None):
     content_p = []
@@ -137,9 +140,8 @@ def piazza_posts(request,pk = None):
                     po.append(cleantext)
     final = zip(sub,date,po)
     return render(request,'api/piazza_post.html',{'allposts':final})
-
-
-# Function for piazza api functionality and login ends here
+# Function for piazza api functionality ends here
+# Function for google classroom api functionality starts here
 def profile_g(request):
     if request.method =='POST':
         if 'credentials' not in request.session:
