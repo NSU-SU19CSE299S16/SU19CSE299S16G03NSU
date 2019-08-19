@@ -183,8 +183,8 @@ def piazza_posts(request,pk = None):
     return render(request,'api/piazza_post.html',{'allposts':final})
 # Function for piazza api functionality ends here
 # Function for google classroom api functionality starts here
-SCOPES = ['https://www.googleapis.com/auth/classroom.courses.readonly']
-
+SCOPES = ['https://www.googleapis.com/auth/classroom.courses.readonly','https://www.googleapis.com/auth/classroom.announcements']
+d_dict ={}
 def profile_g(request):
     if request.method =='POST':
         # If modifying these scopes, delete the file token.pickle.
@@ -209,15 +209,22 @@ def profile_g(request):
         service = build('classroom', 'v1', credentials=creds)
          # Call the Classroom API
         results = service.courses().list(pageSize=5).execute()
+        announcements = service.courses().announcements()
+        announce = announcements.get()
+        for ann in announce:
+            print(ann)
         courses = results.get('courses', [])
         g_courses = []
+        g_course_id =[]
         if not courses:
             print('No courses found.')
         else:
             print('Courses:')
             for course in courses:
-                print(course['name'])
+                name = course['name']
                 g_courses.append(course['name'])
+                g_dict[name] = course['id']
+
         return render(request,'api/google-class.html',{'courses': g_courses})
 
     else:
