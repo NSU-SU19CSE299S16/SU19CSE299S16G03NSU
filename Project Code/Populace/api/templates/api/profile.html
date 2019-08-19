@@ -107,7 +107,7 @@
   </div>
   <div class="col-6">
     <small>Add the courses associated with Google Classroom here</small>
-    <form class="form" action="{% url 'ass_class' %}" method="post">
+    <form class="form" action="{% url 'ass_class_g' %}" method="post">
       {% csrf_token %}
       {{class_name}}
       <button class="btn btn-danger" type="submit" name="add" style="-webkit-border-radius: 10px 10px 10px 10px;""> + </button>

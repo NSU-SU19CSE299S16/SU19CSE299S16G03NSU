@@ -68,7 +68,16 @@ def ass_class(request):
     return redirect('profile')
 
 def ass_class_g(request):
-    pass
+    if request.method == 'POST':
+        form_c_google = Associated_courseForm(request.POST)
+        if form_c_google.is_valid():
+            temp = form_c_google.save(commit=False)
+            temp.platform = 'Google-classroom'
+            temp.populace_user = request.user
+            temp.save()
+            messages.success(request,('course successfully added!'))
+    else:
+        message.success(request,('Invalid Field'))
     return redirect('profile')
 
 # profile page
