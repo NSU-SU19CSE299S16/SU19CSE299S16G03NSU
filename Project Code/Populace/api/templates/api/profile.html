@@ -50,7 +50,9 @@
       </button>
       <div class="dropdown-menu">
         {%for courses in course_p%}
+        {% if courses.platform == 'Piazza' %}
         <a class="dropdown-item bg-info text-white" href="#">{{courses}}</a>
+        {% endif %}
         {% endfor %}
       </div>
     </div>
@@ -99,9 +101,11 @@
           Associated Course/Class
         </button>
         <div class="dropdown-menu">
-          <!-- {%for courses in course_p%} -->
-          <a class="dropdown-item bg-info text-white" href="#">test</a>
-          <!-- {% endfor %} -->
+          {%for courses in course_p%}
+          {% if courses.platform == 'Google-classroom' %}
+          <a class="dropdown-item bg-info text-white" href="#">{{courses}}</a>
+          {% endif %}
+          {% endfor %}
         </div>
       </div>
   </div>
