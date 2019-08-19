@@ -67,6 +67,10 @@ def ass_class(request):
         messages.success(request,('Invalid Field....'))
     return redirect('profile')
 
+def ass_class_g(request):
+    pass
+    return redirect('profile')
+
 # profile page
 @login_required
 def profile(request):
