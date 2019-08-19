@@ -2,7 +2,7 @@
 {% block content %}
 
 <!-- <a href={{authorize}}> Click here to authorize Google Classroom</a> -->
-
-<h1>it works</h1>
-
+{% for class in class_name%}
+<h1>{{class}}</h1>
+{% endfor %}
 {% endblock %}
