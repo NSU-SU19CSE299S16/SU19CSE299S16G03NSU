@@ -58,11 +58,20 @@ def ass_class(request):
     if request.method == 'POST':
         form_c = Associated_courseForm(request.POST)
         if form_c.is_valid():
-            temp = form_c.save(commit=False)
-            temp.platform = 'Piazza'
-            temp.populace_user = request.user
-            temp.save()
-            messages.success(request,('Course successfully added!'))
+            if 'add' in request.POST:
+                temp = form_c.save(commit=False)
+                temp.platform = 'Piazza'
+                temp.populace_user = request.user
+                temp.save()
+                messages.success(request,('Course successfully added!'))
+            elif 'delete' in request.POST:
+                course = form_c.cleaned_data['course_name']
+                if Associated_course.objects.filter(course_name=course).exists():
+
+                    course_g = Associated_course.objects.filter(course_name=course).delete()
+                    messages.success(request,('course successfully removed!'))
+                else:
+                    messages.success(request,('Invalid Course name!'))
     else:
         messages.success(request,('Invalid Field....'))
     return redirect('profile')
@@ -81,7 +90,12 @@ def ass_class_g(request):
 
             elif 'delete' in request.POST:
                 course = form_c_google.cleaned_data['course_name']
-                course_g = Associated_course.objects.filter(course_name=course).delete()
+                if Associated_course.objects.filter(course_name=course).exits():
+
+                    course_g = Associated_course.objects.filter(course_name=course).delete()
+                    messages.success(request,('course successfully removed!'))
+                else:
+                    messages.success(request,('Invalid Course name!'))
 
     else:
         message.success(request,('Invalid Field'))
