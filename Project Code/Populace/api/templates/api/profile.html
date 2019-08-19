@@ -94,7 +94,16 @@
   <div class="row bg-primary text-white" style="padding: 5px;-webkit-border-radius: 10px 10px 10px 10px;box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);opacity:0.9;">
   <div class="col-6">
 
-
+      <div class="dropdown">
+        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+          Associated Course/Class
+        </button>
+        <div class="dropdown-menu">
+          <!-- {%for courses in course_p%} -->
+          <a class="dropdown-item bg-info text-white" href="#">test</a>
+          <!-- {% endfor %} -->
+        </div>
+      </div>
   </div>
   <div class="col-6">
     <small>Add the courses associated with Google Classroom here</small>
