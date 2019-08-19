@@ -208,7 +208,7 @@ def profile_g(request):
                 pickle.dump(creds, token)
         service = build('classroom', 'v1', credentials=creds)
          # Call the Classroom API
-        results = service.courses().list(pageSize=10).execute()
+        results = service.courses().list(pageSize=5).execute()
         courses = results.get('courses', [])
         if not courses:
             print('No courses found.')

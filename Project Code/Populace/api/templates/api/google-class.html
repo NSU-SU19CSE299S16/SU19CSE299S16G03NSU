@@ -1,24 +1,50 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 
+
+<br>
+<br>
 
 <div class="row"style="background-image: url({% static "education.png" %});">
-  <div class="col-1">
-
-  </div>
-  <div class="col-2">
-    <div class="card" style="width:250px; padding: 10px">
-      <img class="card-img-top" src="{% static "download.png" %}" alt="Card image" style="width:100%">
-      <div class="card-body">
-        <p class="card-title">Username: {{user.username}}</p><br>
-        <p class="card-title">Email: {{user.email}}</p><br><hr>
-        <p class="card-title">Name: {{user.first_name}} {{user.last_name}}</p>
-      </div>
-      </div>
+<div class="col-1">
 
 </div>
-{% for course in courses %}
-  <h1>{{course}}</h1>
-{% endfor %}
+<div class="col-2">
+  <div class="card" style="width:250px; padding: 10px">
+    <img class="card-img-top" src="{% static "download.png" %}" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <p class="card-title">Username: {{user.username}}</p><br>
+      <p class="card-title">Email: {{user.email}}</p><br><hr>
+      <p class="card-title">Name: {{user.first_name}} {{user.last_name}}</p>
+    </div>
+    </div>
+</div>
+<div class="col-1">
+
+</div>
+<div class="col-6" style="background-image: url({% static "learning_img.png" %});">
+
+
+<h1 class="text-center font-weight-bold">Active Classes in Piazza</h1><br>
+
+
+<div class="container">
+  {% for course in courses %}
+  <div class="card" style='padding:5px;box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);'>
+  <div class="card-title">
+      {{course}}
+      <br>
+
+  </div>
+  </div>
+  <br>
+  <br>
+  {% endfor %}
+  </div>
+</div>
+</div>
+<br>
+
 
 {% endblock %}
