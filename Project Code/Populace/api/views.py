@@ -183,13 +183,11 @@ def piazza_posts(request,pk = None):
     return render(request,'api/piazza_post.html',{'allposts':final})
 # Function for piazza api functionality ends here
 # Function for google classroom api functionality starts here
+SCOPES = ['https://www.googleapis.com/auth/classroom.courses.readonly']
+g_courses = []
 def profile_g(request):
     if request.method =='POST':
         # If modifying these scopes, delete the file token.pickle.
-        SCOPES = ['https://www.googleapis.com/auth/classroom.courses.readonly']
-    """Shows basic usage of the Classroom API.
-    Prints the names of the first 10 courses the user has access to.
-    """
         creds = None
     # The file token.pickle stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
@@ -208,5 +206,18 @@ def profile_g(request):
         # Save the credentials for the next run
             with open('token.pickle', 'wb') as token:
                 pickle.dump(creds, token)
+        service = build('classroom', 'v1', credentials=creds)
+         # Call the Classroom API
+        results = service.courses().list(pageSize=10).execute()
+        courses = results.get('courses', [])
+        if not courses:
+            print('No courses found.')
+        else:
+            print('Courses:')
+            for course in courses:
+                print(course['name'])
+                g_courses.append(course['name'])
+        return render(request,'api/google-class.html',{'courses': g_courses})
+
     else:
-        return render(request,'api/profile.html')        # form_g = googleLoginForm()
+        return redirect('profile')       # form_g = googleLoginForm()
