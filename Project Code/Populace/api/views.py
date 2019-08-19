@@ -1,3 +1,10 @@
+from __future__ import print_function
+import pickle
+import os.path
+from googleapiclient.discovery import build
+from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import Request
+
 from django.shortcuts import render,redirect
 from piazza_api import Piazza
 from .forms import piazzaLoginForm,googleLoginForm
@@ -178,35 +185,6 @@ def piazza_posts(request,pk = None):
 # Function for google classroom api functionality starts here
 def profile_g(request):
     if request.method =='POST':
-        if 'credentials' not in request.session:
-
-            SCOPES = ['https://www.googleapis.com/auth/classroom.courses.readonly']
-            API_SERVICE_NAME = 'classroom'
-            API_VERSION = 'v1'
-
-            flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(
-            'client_secret.json', scopes=SCOPES)
-
-            flow.redirect_uri = 'http://127.0.0.1:8000/profile/'
-
-            authorization_url, state = flow.authorization_url(
-            access_type='offline',
-            prompt='consent',
-            include_granted_scopes='true')
-
-        # service = build(API_SERVICE_NAME,API_VERSION, credentials=credentials)
-        #
-        #             # Call the Classroom API
-        # results = service.courses().list(pageSize=10).execute()
-        # courses = results.get('courses', [])
-        #
-        # if not courses:
-        #     print('No courses found.')
-        # else:
-        #     print('Courses:')
-        #     for course in courses:
-        #         print(course['name'])
-            request.session['state'] = state
-            return render(request,'api/google-class.html', {'authorize':authorization_url})
+        pass
     else:
         return render(request,'api/profile.html')        # form_g = googleLoginForm()
