@@ -184,7 +184,7 @@ def piazza_posts(request,pk = None):
 # Function for piazza api functionality ends here
 # Function for google classroom api functionality starts here
 SCOPES = ['https://www.googleapis.com/auth/classroom.courses.readonly']
-g_courses = []
+
 def profile_g(request):
     if request.method =='POST':
         # If modifying these scopes, delete the file token.pickle.
@@ -210,6 +210,7 @@ def profile_g(request):
          # Call the Classroom API
         results = service.courses().list(pageSize=5).execute()
         courses = results.get('courses', [])
+        g_courses = []
         if not courses:
             print('No courses found.')
         else:
