@@ -70,12 +70,19 @@ def ass_class(request):
 def ass_class_g(request):
     if request.method == 'POST':
         form_c_google = Associated_courseForm(request.POST)
+
         if form_c_google.is_valid():
-            temp = form_c_google.save(commit=False)
-            temp.platform = 'Google-classroom'
-            temp.populace_user = request.user
-            temp.save()
-            messages.success(request,('course successfully added!'))
+            if 'add' in request.POST:
+                temp = form_c_google.save(commit=False)
+                temp.platform = 'Google-classroom'
+                temp.populace_user = request.user
+                temp.save()
+                messages.success(request,('course successfully added!'))
+
+            elif 'delete' in request.POST:
+                course = form_c_google.cleaned_data['course_name']
+                course_g = Associated_course.objects.filter(course_name=course).delete()
+
     else:
         message.success(request,('Invalid Field'))
     return redirect('profile')
