@@ -34,8 +34,12 @@
             {% if user.is_authenticated %}
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
+                  <a class="nav-link btn btn-outline-info" href="{% url 'profile' %}">profile</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link btn btn-outline-info" href="{% url 'logout' %}">Logout</a>
                 </li>
+
             </ul>
 
             {% else %}
