@@ -36,13 +36,14 @@
 <h3 id="table-of-contents">Table of contents</h3>
 
 <ol>
-<a href="#introduction"><li>Introduction</li><br></a>
-<a href="#features"><li>Software Specification</li><br></a>
-<a href="#technology"><li>Technology</li><br></a>
-<a href="#businessplan"><li>BusinessPlan/Monetization</li></a><br>
-<a href="#conclusion"><li>Conclusion</li></a><br><hr>
+  <a href="#introduction"><li>Introduction</li><br></a>
+  <a href="#features"><li>Software Specification</li><br></a>
+  <a href="#technology"><li>Technology</li><br></a>
+  <a href="#businessplan"><li>BusinessPlan/Monetization</li></a><br>
+  <a href="#conclusion"><li>Conclusion</li></a><br><hr>
 
-</ol><br>
+</ol>
+<br>
  <!-- <p align="left">
   <img width="900" height="400" src="images/populace.png"><br>
 </p>  -->
