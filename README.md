@@ -44,9 +44,8 @@
 
 </ol>
 <br>
- <!-- <p align="left">
-  <img width="900" height="400" src="images/populace.png"><br>
-</p>  -->
+
+
 <h2 id="#introduction">1. Introduction</h2>
 <h3>1.1 Project Idea:</h3>
 <p>At present times we have various web based tools like google-classroom and piazza to manage resource with a large group of people. These are specially used by educational institutions (e.g. school, college, university) and other organization to communicate with a large number of people, to create workflow etc. But often using different sites simultaneously causes a lot of clutter and becomes cumbersome to keep track of. Hence we offer ‘Populace’ which is a web based application. The reason it stands out from the rest is because it will combine all this separate existing platform into one single platform. By signing in to ‘Populace’ users will be able to see posts made on the other existing web applications and also make their own query. It will therefore be a gathering place especially for students and for people who wants a one-stop solution to keep track of all the accounts in different web platform. Thus creating a better workflow.
@@ -125,5 +124,6 @@ Figure 4.0
 <p>
 Google AdSense is the easiest way to monetize a website. It is designed for website developers to display photos, videos, texts on their website.  There are different types of ads available in Google AdSense. If our website is Google AdSense approved, Google will post ads on our website. Therefore, we can earn per view. On the other hand, our website can also be used by universities, schools and colleges as a means for them to communicate with their students, so we can make these organizations use our website as their own personal site. It will help the students in their studies. Because they will find Google classroom and piazza in one platform. It will save their time and keep them organized. So we can also approach these educational institutions to adopt our site to their system.</p>
 
-<h2 id="#conclusion">5. Conclusion</h2>
-In summary Populace is a web-based software that tries to organize life by bringing several platforms together. In this project we achieved most of the functionalities proposed. Except the Business monotization plan using Google-AdSense. We also didn't implement the function of being able to post to the specific platform in this version of the software. In future, we plan to implement these missing functionalities and make the platform even better.
+<h2>5. Conclusion</h2>
+<p id="#conclusion">
+In summary Populace is a web-based software that tries to organize life by bringing several platforms together. In this project we achieved most of the functionalities proposed. Except the Business monotization plan using Google-AdSense. We also didn't implement the function of being able to post to the specific platform in this version of the software. In future, we plan to implement these missing functionalities and make the platform even better.</p>
