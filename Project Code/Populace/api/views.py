@@ -184,7 +184,7 @@ def piazza_posts(request,pk = None):
 # Function for piazza api functionality ends here
 # Function for google classroom api functionality starts here
 SCOPES = ['https://www.googleapis.com/auth/classroom.courses.readonly','https://www.googleapis.com/auth/classroom.announcements']
-d_dict ={}
+g_dict ={}
 def profile_g(request):
     if request.method =='POST':
         # If modifying these scopes, delete the file token.pickle.
@@ -192,9 +192,9 @@ def profile_g(request):
     # The file token.pickle stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
     # time.
-        if os.path.exists('token.pickle'):
-            with open('token.pickle', 'rb') as token:
-                creds = pickle.load(token)
+        # if os.path.exists('token.pickle'):
+        #     with open('token.pickle', 'rb') as token:
+        #         creds = pickle.load(token)
     # If there are no (valid) credentials available, let the user log in.
         if not creds or not creds.valid:
             if creds and creds.expired and creds.refresh_token:
@@ -209,10 +209,10 @@ def profile_g(request):
         service = build('classroom', 'v1', credentials=creds)
          # Call the Classroom API
         results = service.courses().list(pageSize=5).execute()
-        announcements = service.courses().announcements()
-        announce = announcements.get()
-        for ann in announce:
-            print(ann)
+        # announcements = service.courses().announcements()
+        # announce = announcements.get()
+        # for ann in announce:
+        #     print(ann)
         courses = results.get('courses', [])
         g_courses = []
         g_course_id =[]
@@ -224,8 +224,11 @@ def profile_g(request):
                 name = course['name']
                 g_courses.append(course['name'])
                 g_dict[name] = course['id']
-
+        if os.path.exists("token.pickle"):
+            os.remove("token.pickle")
         return render(request,'api/google-class.html',{'courses': g_courses})
 
     else:
-        return redirect('profile')       # form_g = googleLoginForm()
+        return redirect('profile')
+
+    # form_g = googleLoginForm()
