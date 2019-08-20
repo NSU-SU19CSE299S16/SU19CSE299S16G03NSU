@@ -52,16 +52,25 @@ Primarily, the two platforms that we will include are ‘Google Classroom’ and
    
   
   <h3>Login to piazza :</h3>
-  The main feature of ‘Populace’ is that users will be able to view different platforms on one window after logging in once. 
+  The main feature of ‘Populace’ is that users will be able to view different platforms on one window after logging in once.    <br><br>
   
   
-  <p align="left">
-  <img width="500" height="300" src="images/piazza.png">
-</p> <br>
-   <br>
-   
-   * Users can see their subject/course after loging into piazza.<br>
-   * They will also be able to see posts made on  piazza by others without changing the tab.
+  <p align="center">
+  <img width="500" height="300" src="images/piazza.png"><br>
+</p> 
+  <p>
+    * Users can see their subject/course after loging into piazza.<br>
+    * Users also add their courses.<br>
+    * They will also be able to see posts made on  piazza by others without changing the tab.</p>
+    
+  <h3>Login to Google Classroom:</h3>Users can log in to google classroom and also see their classes and also able to add their courses
+     <br>
+     <br>
+     <br>
+  
+  <p align="center">
+  <img width="500" height="300" src="images/google_login.png"><br>
+</p>  
 
         
  <h2 id="technology">Technology</h2>
@@ -69,7 +78,7 @@ Primarily, the two platforms that we will include are ‘Google Classroom’ and
  
 Finally, for the database requirement we have opted to use a NoSQL database. And so we have decided to use MongoDB for the projects database requirement.  The reason for doing so is because we have only two entities:
         
-   * USER: Will keep info about the users signing in the application
+   * USER: Will keep info about the users signing in the application.<br>
    * PLATFORM: The platform information for the signed in USER entity.</p>
          
 <p>To get the data from the other platforms we will be using the following APIs–
