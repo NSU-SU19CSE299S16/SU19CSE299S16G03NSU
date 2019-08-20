@@ -36,15 +36,18 @@
 <h3 id="table-of-contents">Table of contents</h3>
 
 <ol>
-<a href="#projectidea"><li>Project Idea</li><br></a>
+<a href="#introduction"><li>Introduction</li><br></a>
 <a href="#features"><li>Software Specification</li><br></a>
 <a href="#technology"><li>Technology</li><br></a>
-<a href="#businessplan"><li>BusinessPlan/Monetization</li></a>
-</ol><br><br><br>
+<a href="#businessplan"><li>BusinessPlan/Monetization</li></a><br>
+<a href="#conclusion"><li>Conclusion</li></a><br><hr>
+
+</ol><br>
  <!-- <p align="left">
   <img width="900" height="400" src="images/populace.png"><br>
 </p>  -->
-<h2 id="#projectidea">1. Project Idea</h2>
+<h2 id="#introduction">1. Introduction</h2>
+<h3>1.1 Project Idea:</h3>
 <p>At present times we have various web based tools like google-classroom and piazza to manage resource with a large group of people. These are specially used by educational institutions (e.g. school, college, university) and other organization to communicate with a large number of people, to create workflow etc. But often using different sites simultaneously causes a lot of clutter and becomes cumbersome to keep track of. Hence we offer ‘Populace’ which is a web based application. The reason it stands out from the rest is because it will combine all this separate existing platform into one single platform. By signing in to ‘Populace’ users will be able to see posts made on the other existing web applications and also make their own query. It will therefore be a gathering place especially for students and for people who wants a one-stop solution to keep track of all the accounts in different web platform. Thus creating a better workflow.
 Primarily, the two platforms that we will include are ‘Google Classroom’ and ‘Piazza’. In the future we also plan to add other platforms similar to the above mentioned names.</p>
 
@@ -55,8 +58,7 @@ This project has the following features -
    <br>
    <br>
    <p align="center">
-   <img width="700" height="450" src="images/registration.png">
-   Figure 1.0
+   <img width="700" height="450" src="images/registration.png">Figure 1.0
   </p>
  <h3>2.2 Login to a specific platform :</h3>
   The main feature of ‘Populace’ is that users will be able to view different platforms on one window after logging in once. This section is know as the profile. The users information is shown on the left as seen in figure 2.0.<br>
@@ -76,14 +78,14 @@ This project has the following features -
     * Users will also be able to see posts of the specific subject/course sorted by subject and recent to old.</p> <br><br><br>
 
   <p align="center">
-  <img width="750" height="450" src="images/piazzaPost.png"><br>
+  <img width="700" height="420" src="images/piazzaPost.png"><br>
   figure 3.0
 </p>  
 
 
 
  <h2 id="#technology">3. Technology</h2>
- <h5>3.2 Proposed Technology Stack: </h5>
+ <h3>3.2 Proposed Technology Stack: </h3>
  <p>For UI design we decided to use Bootstrap. Bootstrap is a free and open-source CSS framework directed at responsive front-end web development. It contains CSS and JavaScript-based design templates for typography, forms, buttons, navigation and other interface components. Bootstrap will be used over the usual HTML and CSS. And for the backend we will be using Express.js. It is a web application framework. It is a minimal and flexible Node.js web application framework that provides robust set of features.
 
  Finally, for the database requirement we have opted to use a NoSQL database. And so we have decided to use MongoDB for the projects database requirement.  The reason for doing so is because we have only three entities:
@@ -92,12 +94,12 @@ This project has the following features -
     * PLATFORM: The platform information for the signed in USER entity.
     * COURSE_INFO: The name of the course/subject associated with the specific platform</p><br>
 
- <h5>3.2 Implemented Technology Stack: </h5>
+ <h3>3.2 Implemented Technology Stack: </h3>
  <p>Due to npm api for piazza being old and unusable we have decided to switch our project from node.js to Django.For which our project specification has changed. Django is a high level python-based free and open-source web framework.
 
  For the database requirement we have opted to use a SQL database that comes with Django by default And so we have decided to use sqlite3 for the projects database requirement.</p>
 
-<h5>3.3 Design Pattern: </h5>
+<h5>3.2.1 Design Pattern: </h5>
  <p>By default the Django framework follows the model-view-template pattern which a close immitation of the Model-view-controller. We decided to stay with this MVT pattern</p
 
 
@@ -113,4 +115,7 @@ This project has the following features -
 
 <h2 id="businessplan">4. BusinessPlan/Monetization</h2>
 <p>
-Google AdSense is the easiest way to monetize a website. It is designed for website developers to display photos, videos, texts on their website.  There are different types of ads available in Google AdSense. If our website is Google AdSense approved, Google will post ads on our website. Therefore, we can make money if someone clicks and views it. On the other hand, this can be used by universities, schools and colleges as a means for them to communicate with their students, so we can make these organizations use our website as their own personal site. It will help the students in their studies. Because they will find Google classroom and piazza in one platform. It will saves their time and keeps them organized. So we can also approach these educational institutions to adopt our site to their system.</p>
+Google AdSense is the easiest way to monetize a website. It is designed for website developers to display photos, videos, texts on their website.  There are different types of ads available in Google AdSense. If our website is Google AdSense approved, Google will post ads on our website. Therefore, we can earn per view. On the other hand, our website can also be used by universities, schools and colleges as a means for them to communicate with their students, so we can make these organizations use our website as their own personal site. It will help the students in their studies. Because they will find Google classroom and piazza in one platform. It will save their time and keep them organized. So we can also approach these educational institutions to adopt our site to their system.</p>
+
+<h2 id="#conclusion">5. Conclusion</h2>
+In summary Populace is a web-based software that tries to organize life by bringing several platforms together. In this project we achieved most of the functionalities proposed. Except the Business monotization plan using Google-AdSense. We also didn't implement the function of being able to post to the specific platform in this version of the software. In future, we plan to implement these missing functionalities and make the platform even better.
