@@ -57,10 +57,10 @@ This project has the following features -
   To access any platform (e.g.piazza,google classroom) users first have to register. Users must include username, firstname, lastname,email and password. The username will be used as a primary key to identify unique users. And so username will have to be unique. And it must contain 150 characters or fewer characters. Letters, digits and @/./+/-/_ are permitted only.
    <br>
    <br>
-   <p align="center">
-   <img width="700" height="400" src="images/registration.png">
+ <p align="center">
+   <img width="700" height="420" src="images/registration.png"><br>
    Figure 1.0
-  </p>
+ </p>
  <h3>2.2 Login to a specific platform :</h3>
   The main feature of ‘Populace’ is that users will be able to view different platforms on one window after logging in once. This section is know as the profile. The users information is shown on the left as seen in figure 2.0.<br>
   <br>
@@ -93,11 +93,13 @@ Figure 4.0
  <h3>3.2 Proposed Technology Stack: </h3>
  <p>For UI design we decided to use Bootstrap. Bootstrap is a free and open-source CSS framework directed at responsive front-end web development. It contains CSS and JavaScript-based design templates for typography, forms, buttons, navigation and other interface components. Bootstrap will be used over the usual HTML and CSS. And for the backend we will be using Express.js. It is a web application framework. It is a minimal and flexible Node.js web application framework that provides robust set of features.
 
- Finally, for the database requirement we have opted to use a NoSQL database. And so we have decided to use MongoDB for the projects database requirement.  The reason for doing so is because we have only three entities:
+ Finally, for the database requirement we have opted to use a NoSQL database. And so we have decided to use MongoDB for the projects database requirement.  The reason for doing so is because we have only three entities:</p>
 
-    * USER: Will keep info about the users signing in the application.<br>
-    * PLATFORM: The platform information for the signed in USER entity.
-    * COURSE_INFO: The name of the course/subject associated with the specific platform</p><br>
+<ul>
+    <li> USER: Will keep info about the users signing in the application.<br></li>
+    <li>PLATFORM: The platform information for the signed in USER entity.</li>
+    <li>COURSE_INFO: The name of the course/subject associated with the specific platform</li>
+</ul><br>
 
  <h3>3.2 Implemented Technology Stack: </h3>
  <p>Due to npm api for piazza being old and unusable we have decided to switch our project from node.js to Django.For which our project specification has changed. Django is a high level python-based free and open-source web framework.
