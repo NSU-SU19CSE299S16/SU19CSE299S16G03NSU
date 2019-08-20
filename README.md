@@ -24,11 +24,11 @@
   Date prepared: 11/06/2019</h3><br><br>
 
 <h3 id="table-of-contents">Table of contents</h3>
-<li>
-  <ul><a href=" #Projectidea">1.Project Idea<br></a>
-<a href="#features">2.Features<br></a>
-<a href="#technology">3.Technology<br></a>
-<a href="#businessplan">4.BusinessPlan/Monetization</ul></li><a>
+
+  <ul><a href=" #Projectidea">1. Project Idea<br></a>
+<a href="#features">2. Features<br></a>
+<a href="#technology">3. Technology<br></a>
+<a href="#businessplan">4. BusinessPlan/Monetization</ul><a>
 
 
 
