@@ -90,7 +90,7 @@ Figure 4.0
 </p>
 
  <h2 id="#technology">3. Technology</h2>
- <h3>3.2 Proposed Technology Stack: </h3>
+ <h3>3.1 Proposed Technology Stack: </h3>
  <p>For UI design we decided to use Bootstrap. Bootstrap is a free and open-source CSS framework directed at responsive front-end web development. It contains CSS and JavaScript-based design templates for typography, forms, buttons, navigation and other interface components. Bootstrap will be used over the usual HTML and CSS. And for the backend we will be using Express.js. It is a web application framework. It is a minimal and flexible Node.js web application framework that provides robust set of features.
 
  Finally, for the database requirement we have opted to use a NoSQL database. And so we have decided to use MongoDB for the projects database requirement.  The reason for doing so is because we have only three entities:</p>
@@ -126,4 +126,4 @@ Google AdSense is the easiest way to monetize a website. It is designed for webs
 
 <h2>5. Conclusion</h2>
 <p id="#conclusion">
-In summary Populace is a web-based software that tries to organize life by bringing several platforms together. In this project we achieved most of the functionalities proposed. Except the Business monotization plan using Google-AdSense. We also didn't implement the function of being able to post to the specific platform in this version of the software. In future, we plan to implement these missing functionalities and make the platform even better.</p>
+In summary Populace is a web-based software that tries to organize life by bringing several platforms together. In this project we achieved most of the functionalities proposed. Except the Business monetization plan using Google-AdSense. We also didn't implement the function of being able to post to the specific platform in this version of the software. During the development process we faced issues trying to integrate Google-classroom. The method of using the API with Google-Oauth did not work out. As a result we decided to go with the auto-generated credentials file by Google instead of using our own credential file. These maybe a issue when we go live with the site. In future, we plan to implement these missing functionalities,come up with better solution for the implementation and make the platform even better.</p>
