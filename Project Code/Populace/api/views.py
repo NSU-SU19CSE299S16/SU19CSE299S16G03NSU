@@ -11,12 +11,12 @@ import google.oauth2.credentials
 import google_auth_oauthlib.flow
 import googleapiclient.discovery
 #Registration
-from .forms import RegistrationForm
+from .forms import RegistrationForm,Associated_courseForm
 from django.contrib import messages
+from .models import Associated_course
 
 
-
-# Create your views here.
+# home page and login
 def home(request):
     if (request.method == 'POST'):
         username = request.POST['username']
@@ -31,12 +31,13 @@ def home(request):
     form = RegistrationForm()
     return render(request,'api/index.html',{'form':form})
 
+# user logout
 def user_logout(request):
     logout(request)
     return redirect('home')
 
 
-
+# user signup
 def signup(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
@@ -52,11 +53,64 @@ def signup(request):
         form = RegistrationForm()
     return render(request,'api/index.html',{'form':form})
 
+# class association starts here
+def ass_class(request):
+    if request.method == 'POST':
+        form_c = Associated_courseForm(request.POST)
+        if form_c.is_valid():
+            if 'add' in request.POST:
+                temp = form_c.save(commit=False)
+                temp.platform = 'Piazza'
+                temp.populace_user = request.user
+                temp.save()
+                messages.success(request,('Course successfully added!'))
+            elif 'delete' in request.POST:
+                course = form_c.cleaned_data['course_name']
+                if Associated_course.objects.filter(course_name=course).exists():
+
+                    course_g = Associated_course.objects.filter(course_name=course).delete()
+                    messages.success(request,('course successfully removed!'))
+                else:
+                    messages.success(request,('Invalid Course name!'))
+    else:
+        messages.success(request,('Invalid Field....'))
+    return redirect('profile')
+
+def ass_class_g(request):
+    if request.method == 'POST':
+        form_c_google = Associated_courseForm(request.POST)
+
+        if form_c_google.is_valid():
+            if 'add' in request.POST:
+                temp = form_c_google.save(commit=False)
+                temp.platform = 'Google-classroom'
+                temp.populace_user = request.user
+                temp.save()
+                messages.success(request,('course successfully added!'))
+
+            elif 'delete' in request.POST:
+                course = form_c_google.cleaned_data['course_name']
+                if Associated_course.objects.filter(course_name=course).exits():
+
+                    course_g = Associated_course.objects.filter(course_name=course).delete()
+                    messages.success(request,('course successfully removed!'))
+                else:
+                    messages.success(request,('Invalid Course name!'))
+
+    else:
+        message.success(request,('Invalid Field'))
+    return redirect('profile')
+
+# profile page
 @login_required
 def profile(request):
     form_p = piazzaLoginForm()
+    form_c = Associated_courseForm()
+    course_p = Associated_course.objects.filter(populace_user=request.user)
     return render(request,'api/profile.html', {
-    'piazzaform':form_p
+    'piazzaform':form_p,
+    'class_name':form_c,
+    'course_p':course_p
     })
 
 
@@ -99,6 +153,7 @@ def profile_p(request):
         return render(request,'api/profile.html',{
         'piazzaform':form_p
         })
+# function for getting piazza posts according to class
 @login_required
 def piazza_posts(request,pk = None):
     content_p = []
@@ -119,9 +174,8 @@ def piazza_posts(request,pk = None):
                     po.append(cleantext)
     final = zip(sub,date,po)
     return render(request,'api/piazza_post.html',{'allposts':final})
-
-
-# Function for piazza api functionality and login ends here
+# Function for piazza api functionality ends here
+# Function for google classroom api functionality starts here
 def profile_g(request):
     if request.method =='POST':
         if 'credentials' not in request.session:
