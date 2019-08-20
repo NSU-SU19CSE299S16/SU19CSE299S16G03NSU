@@ -21,7 +21,7 @@
   Student Name: Monisha Saha<br>
   Student ID: 1631667042<br>
   Email: monisha.saha@northsouth.edu <br><br>
-  Date prepared: 11/06/2019</h3><br><br>
+  Date prepared: 11/06/2019</h3><br><br><br>
 
 
 
@@ -32,7 +32,7 @@
 
 
 
-<h2> Project Name: Populace </h2><br><br>
+<h2> Project Name: Populace </h2><br>
 <h3 id="table-of-contents">Table of contents</h3>
 
 <ol>
@@ -58,7 +58,8 @@ This project has the following features -
    <br>
    <br>
    <p align="center">
-   <img width="700" height="450" src="images/registration.png">Figure 1.0
+   <img width="700" height="400" src="images/registration.png">
+   Figure 1.0
   </p>
  <h3>2.2 Login to a specific platform :</h3>
   The main feature of ‘Populace’ is that users will be able to view different platforms on one window after logging in once. This section is know as the profile. The users information is shown on the left as seen in figure 2.0.<br>
@@ -79,10 +80,14 @@ This project has the following features -
 
   <p align="center">
   <img width="700" height="420" src="images/piazzaPost.png"><br>
-  figure 3.0
+  Figure 3.0
 </p>  
-
-
+<h3>2.3 Admin Panel:</h3>
+There's also a Admin panel from which the admin can delete unwanted users. Assign new admins with filtered permission and monitor activities.
+<p align="center">
+<img width="700" height="420" src="images/admin.png"><br>
+Figure 4.0
+</p>
 
  <h2 id="#technology">3. Technology</h2>
  <h3>3.2 Proposed Technology Stack: </h3>
