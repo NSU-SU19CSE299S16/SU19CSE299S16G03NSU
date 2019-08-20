@@ -28,49 +28,59 @@
   <ul><a href=" #Projectidea">1. Project Idea<br></a>
 <a href="#features">2. Features<br></a>
 <a href="#technology">3. Technology<br></a>
-<a href="#businessplan">4. BusinessPlan/Monetization</ul><a>
+<a href="#businessplan">4. BusinessPlan/Monetization</ul><a><br><br><br>
+  
+  
+  
+  
+  
+  
+  
+  
 
 
 
 <h2> Project Name: Populace </h2>
+ <p align="left">
+  <img width="900" height="400" src="images/populace.png"><br>
+</p> 
 <h2 id="Project Idea">Project Idea</h2>
 <p>At present times we have various web based tools like google-classroom and piazza to manage resource with a large group of people. These are specially used by educational institutions (e.g. school, college, university) and other organization to communicate with a large number of people, to create workflow etc. But often using different sites simultaneously causes a lot of clutter and becomes cumbersome to keep track of. Hence we offer ‘Populace’ which is a web based application. The reason it stands out from the rest is because it will combine all this separate existing platform into one single platform. By signing in to ‘Populace’ users will be able to see posts made on the other existing web applications and also make their own query. It will therefore be a gathering place especially for students and for people who wants a one-stop solution to keep track of all the accounts in different web platform. Thus creating a better workflow. 
 Primarily, the two platforms that we will include are ‘Google Classroom’ and ‘Piazza’. In the future we also plan to add other platforms similar to the above mentioned names.</p>
 
 <h2 id="features">Features:</h2>
 <h3>Sign up :</h3> 
-* To access piazza and google classroom users have to sign up first.Users must include username, firstname, lastname, password etc.
+  To access piazza and google classroom users have to sign up first.Users must include username, firstname, lastname, password etc.
    <br>
    <br>
-   <p align="center">
-   <img width="500" height="300" src="images/registration.png">
+   <p align="left">
+   <img width="750" height="450" src="images/registration.png">
   </p>
-    <br>
-   <br>
-   <br>
-   <br>
-   
-  
-  <h3>Login to piazza :</h3>
-  The main feature of ‘Populace’ is that users will be able to view different platforms on one window after logging in once.    <br><br>
+ <h3>Login to piazza :</h3>
+  The main feature of ‘Populace’ is that users will be able to view different platforms on one window after logging in once. Users can also able to see their name, e-mail id, user name .<br>
+  <br>
   
   
-  <p align="center">
-  <img width="500" height="300" src="images/piazza.png"><br>
-</p> 
+  <p align="left">
+  <img width="750" height="400" src="images/piazza.png"><br>
+</p>
+<br>
+<br>
   <p>
     * Users can see their subject/course after loging into piazza.<br>
     * Users also add their courses.<br>
     * They will also be able to see posts made on  piazza by others without changing the tab.</p>
     
-  <h3>Login to Google Classroom:</h3>Users can log in to google classroom and also see their classes and also able to add their courses
+  <h3>Login to Google Classroom:</h3>Users can log in to google classroom and also see their classes and also able to add their courses.
+  Added course will be saved in database.
      <br>
      <br>
      <br>
   
   <p align="center">
-  <img width="500" height="300" src="images/google_login.png"><br>
+  <img width="750" height="450" src="images/google_login.png"><br>
 </p>  
+
 
         
  <h2 id="technology">Technology</h2>
