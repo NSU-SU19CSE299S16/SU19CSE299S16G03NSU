@@ -83,12 +83,23 @@ This project has the following features -
 
 
  <h2 id="#technology">3. Technology</h2>
- <p>For UI design we decided to use Bootstrap. Bootstrap is a free and open-source CSS framework directed at responsive front-end web development. It contains CSS and JavaScript-based design templates for typography, forms, buttons, navigation and other interface components. Bootstrap will be used over the usual HTML and CSS. And for the backend we will be using Express.js. It is a web application framework. It is a minimal and flexible Node.js web application framework that provides robust set of features. Due to npm api for piazza being old and unusable we have decided to switch our project from node.js to Django.For which our project specification has changed. Django is a high level python-based free and open-source web framework.
+ <h5>3.2 Proposed Technology Stack: </h5>
+ <p>For UI design we decided to use Bootstrap. Bootstrap is a free and open-source CSS framework directed at responsive front-end web development. It contains CSS and JavaScript-based design templates for typography, forms, buttons, navigation and other interface components. Bootstrap will be used over the usual HTML and CSS. And for the backend we will be using Express.js. It is a web application framework. It is a minimal and flexible Node.js web application framework that provides robust set of features.
 
-Finally, for the database requirement we have opted to use a NoSQL database. And so we have decided to use MongoDB for the projects database requirement.  The reason for doing so is because we have only two entities:
+ Finally, for the database requirement we have opted to use a NoSQL database. And so we have decided to use MongoDB for the projects database requirement.  The reason for doing so is because we have only three entities:
 
-   * USER: Will keep info about the users signing in the application.<br>
-   * PLATFORM: The platform information for the signed in USER entity.</p>
+    * USER: Will keep info about the users signing in the application.<br>
+    * PLATFORM: The platform information for the signed in USER entity.
+    * COURSE_INFO: The name of the course/subject associated with the specific platform</p><br>
+
+ <h5>3.2 Changed Technology Stack: </h5>
+ <p>Due to npm api for piazza being old and unusable we have decided to switch our project from node.js to Django.For which our project specification has changed. Django is a high level python-based free and open-source web framework.
+
+ For the database requirement we have opted to use a NoSQL database. And so we have decided to use MongoDB for the projects database requirement.</p> 
+
+
+
+
 
 <p>To get the data from the other platforms we will be using the following APIs–
 
