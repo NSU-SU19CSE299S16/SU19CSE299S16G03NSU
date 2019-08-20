@@ -37,14 +37,31 @@
 <p>At present times we have various web based tools like google-classroom and piazza to manage resource with a large group of people. These are specially used by educational institutions (e.g. school, college, university) and other organization to communicate with a large number of people, to create workflow etc. But often using different sites simultaneously causes a lot of clutter and becomes cumbersome to keep track of. Hence we offer ‘Populace’ which is a web based application. The reason it stands out from the rest is because it will combine all this separate existing platform into one single platform. By signing in to ‘Populace’ users will be able to see posts made on the other existing web applications and also make their own query. It will therefore be a gathering place especially for students and for people who wants a one-stop solution to keep track of all the accounts in different web platform. Thus creating a better workflow. 
 Primarily, the two platforms that we will include are ‘Google Classroom’ and ‘Piazza’. In the future we also plan to add other platforms similar to the above mentioned names.</p>
 
-<h2 id="features">Features</h2>
-<p>The main feature of ‘Populace’ is that users will be able to view different platforms on one window after logging in once. 
-  <p align="center">
+<h2 id="features">Features:</h2>
+<h3>Sign up :</h3> 
+* To access piazza and google classroom users have to sign up first.Users must include username, firstname, lastname, password etc.
+   <br>
+   <br>
+   <p align="center">
+   <img width="500" height="300" src="images/registration.png">
+  </p>
+    <br>
+   <br>
+   <br>
+   <br>
+   
+  
+  <h3>Login to piazza :</h3>
+  The main feature of ‘Populace’ is that users will be able to view different platforms on one window after logging in once. 
+  
+  
+  <p align="left">
   <img width="500" height="300" src="images/piazza.png">
-</p> 
- 
-<p>* Users can see their subject/course after loging into piazza.<br>
-   * They will also be able to see posts made on  piazza by others without changing the tab.</p>
+</p> <br>
+   <br>
+   
+   * Users can see their subject/course after loging into piazza.<br>
+   * They will also be able to see posts made on  piazza by others without changing the tab.
 
         
  <h2 id="technology">Technology</h2>
