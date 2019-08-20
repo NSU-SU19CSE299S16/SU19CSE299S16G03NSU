@@ -24,10 +24,11 @@
   Date prepared: 11/06/2019</h3><br><br>
 
 <h3 id="table-of-contents">Table of contents</h3>
-
-<a href=" #Project Idea">Project Idea<br></a>
-<a href="#features">Features</a>
-
+<li>
+  <ul><a href=" #Projectidea">1.Project Idea<br></a>
+<a href="#features">2.Features<br></a>
+<a href="#technology">3.Technology<br></a>
+<a href="#businessplan">4.BusinessPlan/Monetization</ul></li><a>
 
 
 
@@ -44,7 +45,7 @@ Primarily, the two platforms that we will include are ‘Google Classroom’ and
    * They will also be able to see posts made on Google Classroom and piazza by others without changing the tab.</p>
 
         
- ## Technology:
+ <h2 id="technology">Technology</h2>
  <p>For UI design we decided to use Bootstrap. Bootstrap is a free and open-source CSS framework directed at responsive front-end web development. It contains CSS and JavaScript-based design templates for typography, forms, buttons, navigation and other interface components. Bootstrap will be used over the usual HTML and CSS. And for the backend we will be using Express.js. It is a web application framework. It is a minimal and flexible Node.js web application framework that provides robust set of features. Due to npm api for piazza being old and unusable we have decided to switch our project from node.js to Django.For which our project specification has changed. Django is a high level python-based free and open-source web framework.
  
 Finally, for the database requirement we have opted to use a NoSQL database. And so we have decided to use MongoDB for the projects database requirement.  The reason for doing so is because we have only two entities:
@@ -59,7 +60,7 @@ Finally, for the database requirement we have opted to use a NoSQL database. And
  
 
 
-## BussinessPlan/Monetization
+<h2 id="businessplan">BusinessPlan/Monetization</h2>
 <p>
 Google AdSense is the easiest way to monetize a website. It is designed for website developers to display photos, videos, texts on their website.  There are different types of ads available in Google AdSense. If our website is Google AdSense approved, Google will post ads on our website. Therefore, we can make money if someone clicks and views it. On the other hand, this can be used by universities, schools and colleges as a means for them to communicate with their students, so we can make these organizations use our website as their own personal site. It will help the students in their studies. Because they will find Google classroom and piazza in one platform. It will saves their time and keeps them organized. So we can also approach these educational institutions to adopt our site to their system.</p>
          
