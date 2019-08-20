@@ -1,6 +1,54 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 
-<a href={{authorize}}> Click here to authorize Google Classroom</a>
+
+<br>
+<br>
+
+<div class="row">
+<div class="col-1">
+
+</div>
+<div class="col-2">
+  <div class="card" style="width:250px; padding: 10px">
+    <img class="card-img-top" src="{% static "download.png" %}" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <p class="card-title">Username: {{user.username}}</p><br>
+      <p class="card-title">Email: {{user.email}}</p><br><hr>
+      <p class="card-title">Name: {{user.first_name}} {{user.last_name}}</p>
+    </div>
+    </div>
+</div>
+<div class="col-1">
+  <div class="learning_img">
+      <img src="{% static "education.png" %}" class="image-fluid" alt="" style='padding:20px;'>
+  </div>
+</div>
+<div class="col-6">
+
+
+<h1 class="text-center font-weight-bold">Active Classes in Google-Classroom</h1><br>
+
+
+<div class="container">
+  {% for course in courses %}
+
+  <div class="card" style='padding:5px;box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);'>
+  <div class="card-title">
+      {{course}}
+      <br>
+
+  </div>
+  </div>
+
+  <br>
+  <br>
+  {% endfor %}
+  </div>
+</div>
+</div>
+<br>
+
 
 {% endblock %}

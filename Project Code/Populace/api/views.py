@@ -1,3 +1,10 @@
+from __future__ import print_function
+import pickle
+import os.path
+from googleapiclient.discovery import build
+from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import Request
+
 from django.shortcuts import render,redirect
 from piazza_api import Piazza
 from .forms import piazzaLoginForm,googleLoginForm
@@ -176,37 +183,52 @@ def piazza_posts(request,pk = None):
     return render(request,'api/piazza_post.html',{'allposts':final})
 # Function for piazza api functionality ends here
 # Function for google classroom api functionality starts here
+SCOPES = ['https://www.googleapis.com/auth/classroom.courses.readonly','https://www.googleapis.com/auth/classroom.announcements']
+g_dict ={}
 def profile_g(request):
     if request.method =='POST':
-        if 'credentials' not in request.session:
+        # If modifying these scopes, delete the file token.pickle.
+        creds = None
+    # The file token.pickle stores the user's access and refresh tokens, and is
+    # created automatically when the authorization flow completes for the first
+    # time.
+        # if os.path.exists('token.pickle'):
+        #     with open('token.pickle', 'rb') as token:
+        #         creds = pickle.load(token)
+    # If there are no (valid) credentials available, let the user log in.
+        if not creds or not creds.valid:
+            if creds and creds.expired and creds.refresh_token:
+                creds.refresh(Request())
+            else:
+                flow = InstalledAppFlow.from_client_secrets_file(
+                    'credentials.json', SCOPES)
+                creds = flow.run_local_server(port=0)
+        # Save the credentials for the next run
+            with open('token.pickle', 'wb') as token:
+                pickle.dump(creds, token)
+        service = build('classroom', 'v1', credentials=creds)
+         # Call the Classroom API
+        results = service.courses().list(pageSize=5).execute()
+        # announcements = service.courses().announcements()
+        # announce = announcements.get()
+        # for ann in announce:
+        #     print(ann)
+        courses = results.get('courses', [])
+        g_courses = []
+        g_course_id =[]
+        if not courses:
+            print('No courses found.')
+        else:
+            print('Courses:')
+            for course in courses:
+                name = course['name']
+                g_courses.append(course['name'])
+                g_dict[name] = course['id']
+        if os.path.exists("token.pickle"):
+            os.remove("token.pickle")
+        return render(request,'api/google-class.html',{'courses': g_courses})
 
-            SCOPES = ['https://www.googleapis.com/auth/classroom.courses.readonly']
-            API_SERVICE_NAME = 'classroom'
-            API_VERSION = 'v1'
-
-            flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(
-            'client_secret.json', scopes=SCOPES)
-
-            flow.redirect_uri = 'http://127.0.0.1:8000/profile/'
-
-            authorization_url, state = flow.authorization_url(
-            access_type='offline',
-            prompt='consent',
-            include_granted_scopes='true')
-
-        # service = build(API_SERVICE_NAME,API_VERSION, credentials=credentials)
-        #
-        #             # Call the Classroom API
-        # results = service.courses().list(pageSize=10).execute()
-        # courses = results.get('courses', [])
-        #
-        # if not courses:
-        #     print('No courses found.')
-        # else:
-        #     print('Courses:')
-        #     for course in courses:
-        #         print(course['name'])
-            request.session['state'] = state
-            return render(request,'api/google-class.html', {'authorize':authorization_url})
     else:
-        return render(request,'api/profile.html')        # form_g = googleLoginForm()
+        return redirect('profile')
+
+    # form_g = googleLoginForm()
