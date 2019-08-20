@@ -92,16 +92,19 @@ This project has the following features -
     * PLATFORM: The platform information for the signed in USER entity.
     * COURSE_INFO: The name of the course/subject associated with the specific platform</p><br>
 
- <h5>3.2 Changed Technology Stack: </h5>
+ <h5>3.2 Implemented Technology Stack: </h5>
  <p>Due to npm api for piazza being old and unusable we have decided to switch our project from node.js to Django.For which our project specification has changed. Django is a high level python-based free and open-source web framework.
 
- For the database requirement we have opted to use a NoSQL database. And so we have decided to use MongoDB for the projects database requirement.</p> 
+ For the database requirement we have opted to use a SQL database that comes with Django by default And so we have decided to use sqlite3 for the projects database requirement.</p>
+
+<h5>3.3 Design Pattern: </h5>
+ <p>By default the Django framework follows the model-view-template pattern which a close immitation of the Model-view-controller. We decided to stay with this MVT pattern</p
 
 
 
 
 
-<p>To get the data from the other platforms we will be using the following APIs–
+<p>To get the data from the other platforms we used the following APIs–
 
   * [Google Classroom Link](https://developers.google.com/classroom/quickstart/python)
   * [Piazza Link](https://pypi.org/project/piazza-api/) </p>
